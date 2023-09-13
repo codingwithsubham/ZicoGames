@@ -6,7 +6,7 @@ import { Link, useLocation } from "react-router-dom";
 import { closeSidebar, openSidebar } from "../../actions/layout";
 
 const Navbar = ({
-  auth: { isAuthenticated, user, cnfData },
+  auth: { isAuthenticated, user },
   layout: { isSidebarOpen },
   logout,
   openSidebar,
@@ -56,10 +56,10 @@ const Navbar = ({
                     <span
                       style={{
                         backgroundColor:
-                        cnfData?.status ? "green" : "red",
+                        user?.status ? "green" : "red",
                       }}
                     >
-                      {cnfData?.status ? "Active" : "Inactive"}
+                      {user?.status ? "Active" : "Inactive"}
                     </span>
                   </div>
                   Welcome Back!

@@ -12,12 +12,12 @@ const distributeWinning = async (trdData) => {
         mltipy = 3;
     }
     if (usrTrdData.length > 0) {
-        usrTrdData.forEach(async (element) => {
+        for (element of usrTrdData) {
             const amnt = parseInt(element?.tradingData?.amnt) * parseInt(mltipy);
             const admnCharge = (parseInt(amnt) * 10) / 100;
             const amntToCredit = parseInt(amnt) - parseFloat(admnCharge);
-            await creditToWallet(amntToCredit, "Color Trade Winning", element.user)
-        });
+            await creditToWallet(amntToCredit, "Color Trade Winning", element.user);
+        }
     }
 }
 
@@ -46,7 +46,15 @@ const setResult = async (trdData) => {
 const getLower = (data) => {
     let values = Object.values(data.stocks);
     values = values.filter(x => x !== true && x !== false);
-    const res = Math.min(...values);
+    let res = Math.min(...values);
+    if(res <= 0){
+        let newVal = values.filter(x => x !== res);
+        let minRes = Math.min(...newVal);
+        let totalVal = Object.values(data.stocks).reduce((partialSum, a) => partialSum + a, 0);
+        if((minRes * 3) <= ((parseInt(totalVal)*70)/100)){
+            res = minRes;
+        }
+    }
     let minDatas = [];
     for (const property in data.stocks) {
         if (data.stocks[property] === res) {

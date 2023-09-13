@@ -50,8 +50,46 @@ const Sidebar = ({
             </div>
           </div>
           <div className="sidebar-links">
-            {user?.role === "admin" ? (
+            <Fragment>
+              <NavLink exact to="/home" onClick={() => closeSidebar()}>
+                Home
+              </NavLink>
+              <NavLink exact to="/5m-trading" onClick={() => closeSidebar()}>
+                Number Game
+              </NavLink>
+              <NavLink exact to="/color-trading" onClick={() => closeSidebar()}>
+                Color Game
+              </NavLink>
+              <NavLink exact to="/wallet" onClick={() => closeSidebar()}>
+                Wallet
+              </NavLink>
+              {display && <NavLink exact to="/withdrawl" onClick={() => closeSidebar()}>
+                Withdrawl
+              </NavLink>}
+              <NavLink exact to="/" onClick={() => closeSidebar()}>
+                Privacy Policy
+              </NavLink>
+              <NavLink exact to="/" onClick={() => closeSidebar()}>
+                Terms of Use
+              </NavLink>
+              <NavLink exact to="/" onClick={() => closeSidebar()}>
+                Disclaimer
+              </NavLink>
+              <NavLink exact to="/" onClick={() => closeSidebar()}>
+                About Us
+              </NavLink>
+              <NavLink exact to="/" onClick={() => closeSidebar()}>
+                Contact Us
+              </NavLink>
+              {user?.role === "admin" && display && (
               <Fragment>
+                <NavLink
+                  exact
+                  to="/tp-up-aprv"
+                  onClick={() => closeSidebar()}
+                >
+                  Approve Topup
+                </NavLink>
                 <NavLink
                   exact
                   to="/wth-dwl-aprv"
@@ -63,40 +101,8 @@ const Sidebar = ({
                   Trade Live
                 </NavLink>
               </Fragment>
-            ) : (
-              <Fragment>
-                <NavLink exact to="/home" onClick={() => closeSidebar()}>
-                  Home
-                </NavLink>
-                <NavLink exact to="/5m-trading" onClick={() => closeSidebar()}>
-                  Number Game
-                </NavLink>
-                <NavLink exact to="/color-trading" onClick={() => closeSidebar()}>
-                  Color Game
-                </NavLink>
-                <NavLink exact to="/wallet" onClick={() => closeSidebar()}>
-                  Wallet
-                </NavLink>
-                {display && <NavLink exact to="/withdrawl" onClick={() => closeSidebar()}>
-                  Withdrawl
-                </NavLink>}
-                <NavLink exact to="/" onClick={() => closeSidebar()}>
-                  Privacy Policy
-                </NavLink>
-                <NavLink exact to="/" onClick={() => closeSidebar()}>
-                  Terms of Use
-                </NavLink>
-                <NavLink exact to="/" onClick={() => closeSidebar()}>
-                  Disclaimer
-                </NavLink>
-                <NavLink exact to="/" onClick={() => closeSidebar()}>
-                  About Us
-                </NavLink>
-                <NavLink exact to="/" onClick={() => closeSidebar()}>
-                  Contact Us
-                </NavLink>
-              </Fragment>
             )}
+            </Fragment>
           </div>
         </div>
       </div>

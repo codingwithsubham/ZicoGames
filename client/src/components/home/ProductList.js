@@ -6,21 +6,16 @@ const ProductList = () => {
         <div className='prd-lst-cnf'>
             <Link to='/5m-trading' className='cnf-itm'>
                 <img className='cnf-icn' alt='' src={require('../../static/1.png')} />
-                <p>Number Game</p>
+                <p>1, 2 ka 9</p>
             </Link>
             <Link to='/color-trading' className='cnf-itm'>
                 <img className='cnf-icn' alt='' src={require('../../static/5.png')} />
-                <p>Color Game</p>
+                <p>Rang-baazi</p>
             </Link>
             <div className='cnf-itm'>
                 <div className='cmg-soon'>Releasing Next Week</div>
                 <img className='cnf-icn' alt='' src={require('../../static/2.png')} />
-                <p>Daily Game</p>
-            </div>
-            <div className='cnf-itm'>
-                <div className='cmg-soon'>Releasing Next Week</div>
-                <img className='cnf-icn' alt='' src={require('../../static/3.png')} />
-                <p>5 Hours Game</p>
+                <p>Pattang-baz</p>
             </div>
         </div>
     )

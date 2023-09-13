@@ -36,7 +36,7 @@ router.post("/approve", auth, async (req, res) => {
             { $set: { status: APPROVED } }
         );
         const wallet = await creditToWallet(tpupData.blnc, "Top-Up Added", tpupData.user);
-        const user = await User.findOne({ legacyid: tpupData.user });
+        const user = await User.findOne({ _id: tpupData.user });
         if (!user.status) {
             user.status = true;
             await user.save();

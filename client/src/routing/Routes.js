@@ -20,8 +20,9 @@ import Register from "../components/auth/Register";
 import ResetPassword from "../components/auth/ResetPassword";
 import { showulDisplay } from "../common/functions";
 import Profile from "../components/profile/Profile";
+import AdminRoute from "./AdminRoute";
 
-const Routes = ({ layout: { isSidebarOpen }, auth: { user } }) => {
+const Routes = ({ layout: { isSidebarOpen }}) => {
   const display = showulDisplay();
   return (
     <div
@@ -38,21 +39,15 @@ const Routes = ({ layout: { isSidebarOpen }, auth: { user } }) => {
         <PrivateRoute exact path="/color-trading" component={ColorTrading} />
         <PrivateRoute exact path="/wallet" component={Wallet} />
         <PrivateRoute exact path="/profile" component={Profile} />
+        <AdminRoute exact path="/trd-live" component={TradeRecord} />
+        <AdminRoute exact path="/tp-up-aprv" component={ApproveTopupRequest} />
+        <AdminRoute exact path="/wth-dwl-aprv" component={ApproveWithdrawlRequest} />
         {
           display && <Fragment>
             <PrivateRoute exact path="/wallet-top-up" component={WalletTopup} />
             <PrivateRoute exact path="/withdrawl" component={Withdrawl} />
             <PrivateRoute exact path="/submit-withdrawl/:blnc" component={SubmitWithdrawlReq} />
           </Fragment>
-        }
-        {
-          user?.role === "admin" && (
-            <Fragment>
-              <PrivateRoute exact path="/trd-live" component={TradeRecord} />
-              <PrivateRoute exact path="/tp-up-aprv" component={ApproveTopupRequest} />
-              <PrivateRoute exact path="/wth-dwl-aprv" component={ApproveWithdrawlRequest} />
-            </Fragment>
-          )
         }
         <Route component={NotFound} />
       </Switch>
@@ -61,11 +56,9 @@ const Routes = ({ layout: { isSidebarOpen }, auth: { user } }) => {
 };
 
 Routes.propTypes = {
-  auth: PropTypes.object.isRequired,
   layout: PropTypes.object.isRequired,
 };
 const mapStateToProps = (state) => ({
-  auth: state.auth,
   layout: state.layout,
 });
 

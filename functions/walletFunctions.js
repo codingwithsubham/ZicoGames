@@ -37,10 +37,10 @@ const debitToWallet = async (amnt, note, user) => {
     try {
         let wallet = await Wallet.findOne({ user: user });
         if(!wallet){
-            throw error;
+            throw new Error;
         }
         if(parseFloat(wallet.blnc) < parseFloat(amnt)){
-            throw error;
+            throw new Error;
         }
         wallet.blnc = (parseFloat(wallet.blnc) - parseFloat(amnt)).toFixed(2);
         wallet.history.push({
