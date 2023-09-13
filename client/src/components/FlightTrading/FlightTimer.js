@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { useTimer } from "use-timer";
 import { DECREMENTAL, TRADING_CLOSE, TRADING_START } from "../../common/common";
-import { getLatstTrade } from "../../actions/fiveMTrade";
+import { getLatstTrade } from "../../actions/flightTrade";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
-const FiveMTimer = ({
+const FlightTimer = ({
   handleTradingClose,
   handleTradingStart,
-  fiveMTrade: { trdData },
+  flightTrade: { trdData },
   getLatstTrade,
 }) => {
   const { time, start, reset, advanceTime } = useTimer({
@@ -23,10 +23,10 @@ const FiveMTimer = ({
       const dt1 = new Date();
       const dt2 = new Date(trdData?.startTime);
       const diff = (dt2.getTime() - dt1.getTime()) / 1000;
-      const diffTimer = 190 - Math.abs(Math.round(diff));
+      const diffTimer = 130 - Math.abs(Math.round(diff));
       if (diffTimer <= 0) {
         start();
-        advanceTime(190);
+        advanceTime(130);
       } else {
         start();
         advanceTime(-(diffTimer));
@@ -65,15 +65,15 @@ const FiveMTimer = ({
   );
 };
 
-FiveMTimer.propTypes = {
+FlightTimer.propTypes = {
   getLatstTrade: PropTypes.func.isRequired,
-  fiveMTrade: PropTypes.object.isRequired,
+  flightTrade: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state) => ({
-  fiveMTrade: state.fiveMTrade,
+  flightTrade: state.flightTrade,
 });
 
 export default connect(mapStateToProps, {
   getLatstTrade,
-})(FiveMTimer);
+})(FlightTimer);

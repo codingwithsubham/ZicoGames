@@ -18,11 +18,7 @@ const ColorResult = ({
   if (timerVal === 1) {
     getTradeRecords();
   }
-
-  if (tradingClose) {
-    getTradeRecords();
-  }
-
+  
   return (
     <div className="rslt-dsply">
       {tradingClose ? (

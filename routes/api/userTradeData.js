@@ -5,11 +5,13 @@ const {
     SERVER_ERROR,
     STATUS_CODE_500,
     FIVE_M,
-    COLOR
+    COLOR,
+    FLIGHT
 } = require("../../common/constant/constants");
 const UserTradeData = require("../../models/UserTradeData");
 const FiveMTrade = require("../../models/FiveMTrade");
 const ColorTrade = require("../../models/ColorTrade");
+const FlightTrade = require("../../models/FlightTrade");
 const { debitToWallet } = require("../../functions/walletFunctions");
 
 // @route GET api/user-trade/ 
@@ -65,6 +67,9 @@ router.post("/set", auth, async (req, res) => {
             tradeData.stocks[stock] = parseInt(tradeData.stocks[stock]) + parseInt(amnt);
         } else if (trdType === COLOR) {
             tradeData = await ColorTrade.findById(tradeId);
+            tradeData.stocks[stock] = parseInt(tradeData.stocks[stock]) + parseInt(amnt);
+        } else if (trdType === FLIGHT) {
+            tradeData = await FlightTrade.findById(tradeId);
             tradeData.stocks[stock] = parseInt(tradeData.stocks[stock]) + parseInt(amnt);
         }
         const userTrdData = new UserTradeData({

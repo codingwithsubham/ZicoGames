@@ -1,6 +1,6 @@
 const { LOWER } = require("../common/constant/constants");
-const { fiveMTradeDefault } = require("../common/constant/defaultData");
-const FiveMTrade = require("../models/FiveMTrade");
+const { flightTradeDefault } = require("../common/constant/defaultData");
+const FlightTrade = require("../models/FlightTrade");
 const UserTradeData = require("../models/UserTradeData");
 const { creditToWallet } = require("../functions/walletFunctions");
 
@@ -9,10 +9,10 @@ const distributeWinning = async (trdData) => {
     const usrTrdData = await UserTradeData.find({ tradeId: trdData?._id, 'tradingData.stock': trdData?.result });
     if(usrTrdData.length > 0){
         usrTrdData.forEach(async (element) => {
-            const amnt = parseInt(element?.tradingData?.amnt) * 9;
+            const amnt = parseInt(element?.tradingData?.amnt) * parseInt(trdData?.result);
             const admnCharge = (parseInt(amnt) * 10) / 100;
             const amntToCredit = parseInt(amnt) - parseFloat(admnCharge);
-            await creditToWallet( amntToCredit, "1,2 ka 9 Winning", element.user)
+            await creditToWallet( amntToCredit, "Patang-baaz Winning", element.user)
         });
     }
 }
@@ -23,8 +23,8 @@ const createNewTrade = async (trads) => {
         const x = trads[0];
         await x.remove();
     }
-    const new_trade = new FiveMTrade({
-        ...fiveMTradeDefault,
+    const new_trade = new FlightTrade({
+        ...flightTradeDefault,
         startTime: date.toLocaleString("en-US", { timeZone: "Asia/Kolkata" })
     });
     await new_trade.save();

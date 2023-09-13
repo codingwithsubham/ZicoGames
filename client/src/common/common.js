@@ -5,6 +5,7 @@ module.exports = {
     TRADING_START: "TRADING_START",
     FIVE_M: "5m",
     COLOR: "color",
+    FLIGHT: "flight",
     CREDIT: "Credit",
     DEBIT: "Debit",
 }

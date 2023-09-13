@@ -55,3 +55,5 @@ export const GET_TPUP_REQS = "GET_TPUP_REQS";
 export const GET_WITHDRWL_REQS = "GET_WITHDRWL_REQS";
 export const GET_LATST_CLR_TRD = "GET_LATST_CLR_TRD";
 export const GET_CLR_TRD_RCRD = "GET_CLR_TRD_RCRD";
+export const GET_LATST_FLT_TRD = "GET_LATST_FLT_TRD";
+export const GET_CLR_FLT_RCRD = "GET_CLR_FLT_RCRD";

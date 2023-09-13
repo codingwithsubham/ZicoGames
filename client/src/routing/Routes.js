@@ -7,7 +7,8 @@ import Alert from "../components/layout/Alert"
 import ScrollToTop from "../ScrollToTop";
 import PrivateRoute from "./PrivateRoute";
 import Home from "../components/home/Home";
-import FiveMTrading from "../components/FiveMTrading/FiveMTrading"
+import FiveMTrading from "../components/FiveMTrading/FiveMTrading";
+import FlightTrading from "../components/FlightTrading/FlightTrading";
 import WalletTopup from "../components/wallet/WalletTopup";
 import ApproveTopupRequest from "../components/admin/ApproveTopupRequest";
 import Wallet from "../components/wallet/Wallet";
@@ -37,6 +38,7 @@ const Routes = ({ layout: { isSidebarOpen }}) => {
         <PrivateRoute exact path="/home" component={Home} />
         <PrivateRoute exact path="/5m-trading" component={FiveMTrading} />
         <PrivateRoute exact path="/color-trading" component={ColorTrading} />
+        <PrivateRoute exact path="/flight-trading" component={FlightTrading} />
         <PrivateRoute exact path="/wallet" component={Wallet} />
         <PrivateRoute exact path="/profile" component={Profile} />
         <AdminRoute exact path="/trd-live" component={TradeRecord} />

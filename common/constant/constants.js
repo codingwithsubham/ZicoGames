@@ -48,4 +48,5 @@ module.exports = {
   //constant
   FIVE_M: "5m",
   COLOR: "color",
+  FLIGHT: "flight",
 };

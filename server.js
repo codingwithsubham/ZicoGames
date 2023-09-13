@@ -4,6 +4,7 @@ const connectDB = require("./config/db");
 const app = express();
 const fiveMTradeCron = require('./scheduledFunctions/fiveMTradeCron');
 const colorTradeCron = require('./scheduledFunctions/colorTradeCron');
+const flightTradeCron = require('./scheduledFunctions/flightTradeCron');
 const bodyParser = require('body-parser');
 
 // Connect Database
@@ -11,6 +12,7 @@ connectDB();
 //Cron Jobs
 fiveMTradeCron.init();
 colorTradeCron.init();
+flightTradeCron.init();
 // Init Middleware
 app.use(express.json({ extended: false }));
 // Defining body-parser
@@ -21,11 +23,11 @@ app.use(express.static("uploads"));
 app.use("/api/auth", require("./routes/api/auth"));
 app.use("/api/five-m-trade", require("./routes/api/fiveMTrade"));
 app.use("/api/color-trade", require("./routes/api/colorTrade"));
+app.use("/api/flight-trade", require("./routes/api/flightTrade"));
 app.use("/api/user-trade", require("./routes/api/userTradeData"));
 app.use("/api/wallet", require("./routes/api/wallet"));
 app.use("/api/top-up-request", require("./routes/api/topUpRequest"));
 app.use("/api/withdrawl-request", require("./routes/api/withdrawlRequest"));
-
 
 // Set static folder
 app.use(express.static("client/build"));

@@ -15,10 +15,6 @@ const FiveMStockResult = ({ tradingClose, timerVal, fiveMTrade: { allTrdData }, 
         getTradeRecords();
     }
 
-    if(tradingClose){
-        getTradeRecords();
-    }
-
     return (
         <div className='rslt-dsply'>
             {

@@ -330,17 +330,16 @@ marquee.win-marq {
 }
 
 .stk-itms {
-  width: 40px;
+  width: 50px;
   margin: 1px;
   display: flex;
   justify-content: center;
   align-items: center;
   background: #673ab7;
-  height: 40px;
+  height: 50px;
   border-radius: 50%;
   border: 5px double #fff;
   color: #fff;
-  min-width: 13%;
 }
 
 .trd-sttr-wrpr {
@@ -618,7 +617,7 @@ table.trd-rcrds-table {
   justify-content: center;
   align-items: center;
   color: #fff;
-  background-color: #333;
+  background-color: #f44336;
   font-size: 50px;
   border-radius: 10px;
   margin-bottom: 10px;
@@ -630,7 +629,7 @@ table.trd-rcrds-table {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #333;
+  background: #f44336;
   border-radius: 10px;
 }
 
@@ -1088,7 +1087,28 @@ img.wl-icn {
 
 .btm-bar-wrap a.active .btm-txt {
   display: block;
-} 
+}
+
+.roller-anim {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+}
+
+.roller-anim img {
+  width: 150px;
+  height: 120px;
+  object-fit: cover;
+}
+
+.trade-wrap-flight {
+  padding: 10px;
+}
+
+.trade-wrap-flight .stk-itms {
+  background: #111;
+}
 
 @media only screen and (max-width: 600px) {
   .vld-lding img {

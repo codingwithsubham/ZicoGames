@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
-import { getTradeRecords } from "../../actions/fiveMTrade";
+import { getTradeRecords } from "../../actions/flightTrade";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
-const FiveMTradeRecords = ({ fiveMTrade: { allTrdData }, getTradeRecords }) => {
+const FlightTradeRecords = ({ flightTrade: { allTrdData }, getTradeRecords }) => {
   useEffect(() => {
     getTradeRecords();
   }, [getTradeRecords]);
@@ -22,8 +22,10 @@ const FiveMTradeRecords = ({ fiveMTrade: { allTrdData }, getTradeRecords }) => {
           {allTrdData?.map((itm, idx) => (
             <tr key={idx}>
               <td>{itm?._id?.toString().substring(0,8)}</td>
-              <td>1,2 ka 9</td>
-              <td>{itm.result}</td>
+              <td>Patang-Baz</td>
+              <td className="clr-icn-data">
+                {itm.result}
+              </td>
             </tr>
           ))}
         </tbody>
@@ -32,15 +34,15 @@ const FiveMTradeRecords = ({ fiveMTrade: { allTrdData }, getTradeRecords }) => {
   );
 };
 
-FiveMTradeRecords.propTypes = {
+FlightTradeRecords.propTypes = {
   getTradeRecords: PropTypes.func.isRequired,
-  fiveMTrade: PropTypes.object.isRequired,
+  flightTrade: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state) => ({
-  fiveMTrade: state.fiveMTrade,
+  flightTrade: state.flightTrade,
 });
 
 export default connect(mapStateToProps, {
   getTradeRecords,
-})(FiveMTradeRecords);
+})(FlightTradeRecords);

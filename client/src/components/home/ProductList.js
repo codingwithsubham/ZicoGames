@@ -12,11 +12,10 @@ const ProductList = () => {
                 <img className='cnf-icn' alt='' src={require('../../static/5.png')} />
                 <p>Rang-baazi</p>
             </Link>
-            <div className='cnf-itm'>
-                <div className='cmg-soon'>Releasing Next Week</div>
+            <Link to='/flight-trading' className='cnf-itm'>
                 <img className='cnf-icn' alt='' src={require('../../static/2.png')} />
                 <p>Pattang-baz</p>
-            </div>
+            </Link>
         </div>
     )
 }

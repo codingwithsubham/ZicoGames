@@ -7,6 +7,7 @@ import tpupreq from "./tpupReq";
 import wallet from "./wallet";
 import colorTrade from "./colorTrade"
 import withdrwlReq from "./withdrwlReq"
+import flightTrade from "./flightTrade"
 
 export default combineReducers({
   alert,
@@ -15,6 +16,7 @@ export default combineReducers({
   tpupreq,
   fiveMTrade,
   layout,
+  flightTrade,
   withdrwlReq,
   colorTrade
 });

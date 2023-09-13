@@ -2,16 +2,16 @@ import React, { useState } from "react";
 import { setTradeData } from "../../actions/userTrading";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { FIVE_M } from "../../common/common";
+import { FLIGHT } from "../../common/common";
 import { setAlert } from "../../actions/alert";
 
-const FiveMTradeSetter = ({
+const FlightTradeSetter = ({
   stock,
   handleClose,
   setTradeData,
   setAlert,
   wlt,
-  fiveMTrade: { trdData },
+  flightTrade: { trdData },
 }) => {
   const [amnt, setAmnt] = useState(1);
   const [mltply, setMltply] = useState(1);
@@ -27,7 +27,7 @@ const FiveMTradeSetter = ({
           stock: stock,
           amnt: amnt * mltply,
           tradeId: trdData?._id,
-          trdType: FIVE_M,
+          trdType: FLIGHT,
         });
       }
     }
@@ -39,7 +39,7 @@ const FiveMTradeSetter = ({
       <div className="trd-sttr-bg" onClick={() => handleClose()} />
       <div className="trd-sttr-cntnt insta-an">
         <div className="trd-sttr-head">
-          <h1>1,2 ka 9</h1>
+          <h1>Patang-Baz</h1>
           <p>
             Chosen Stock: <strong>{stock}</strong>
           </p>
@@ -128,7 +128,7 @@ const FiveMTradeSetter = ({
             alt=""
             className="winz-img"
           />
-          <h2>9X</h2>
+          <h2>{stock === "yellow" ? "3X" : "2X"}</h2>
           <h3>Return</h3>
         </div>
         <div className="trd-sttr-ftr">
@@ -162,17 +162,17 @@ const FiveMTradeSetter = ({
   );
 };
 
-FiveMTradeSetter.propTypes = {
+FlightTradeSetter.propTypes = {
   setTradeData: PropTypes.func.isRequired,
-  fiveMTrade: PropTypes.object.isRequired,
+  flightTrade: PropTypes.object.isRequired,
   setAlert: PropTypes.func.isRequired
 };
 
 const mapStateToProps = ( state ) => ({
-  fiveMTrade: state.fiveMTrade,
+  flightTrade: state.flightTrade,
 });
 
 export default connect(mapStateToProps, {
   setTradeData,
   setAlert,
-})(FiveMTradeSetter);
+})(FlightTradeSetter);

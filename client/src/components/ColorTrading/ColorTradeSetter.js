@@ -39,7 +39,7 @@ const ColorTradeSetter = ({
       <div className="trd-sttr-bg" onClick={() => handleClose()} />
       <div className="trd-sttr-cntnt insta-an">
         <div className="trd-sttr-head">
-          <h1>CnF Color Trade</h1>
+          <h1>Rang-bazi</h1>
           <p>
             Chosen Stock: <strong>{stock}</strong>
           </p>

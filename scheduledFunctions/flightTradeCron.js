@@ -1,11 +1,11 @@
 const CronJob = require("node-cron");
-const FiveMTrade = require("../models/FiveMTrade");
-const { setResult, createNewTrade, distributeWinning } = require("../zFunctions/fiveMTrade");
+const FlightTrade = require("../models/FlightTrade");
+const { setResult, createNewTrade, distributeWinning } = require("../zFunctions/flightTrade");
 
 exports.init = () => {
-  const fiveMTradeCron = CronJob.schedule("*/3 * * * *", async () => {
+  const flightTradeCron = CronJob.schedule("*/2 * * * *", async () => {
     try {
-      const trads = await FiveMTrade.find();
+      const trads = await FlightTrade.find();
       if (trads.length > 0) {
         await setResult(trads[trads.length - 1]);
       }
@@ -19,5 +19,5 @@ exports.init = () => {
     timezone: "Asia/Kolkata"
   });
 
-  fiveMTradeCron.start();
+  flightTradeCron.start();
 };

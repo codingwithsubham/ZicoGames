@@ -22,7 +22,7 @@ const ColorTradeRecords = ({ colorTrade: { allTrdData }, getTradeRecords }) => {
           {allTrdData?.map((itm, idx) => (
             <tr key={idx}>
               <td>{itm?._id?.toString().substring(0,8)}</td>
-              <td>Color</td>
+              <td>Rang-bazi</td>
               <td className="clr-icn-data">
                 {itm.result}
                 <div 

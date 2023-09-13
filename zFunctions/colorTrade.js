@@ -16,7 +16,7 @@ const distributeWinning = async (trdData) => {
             const amnt = parseInt(element?.tradingData?.amnt) * parseInt(mltipy);
             const admnCharge = (parseInt(amnt) * 10) / 100;
             const amntToCredit = parseInt(amnt) - parseFloat(admnCharge);
-            await creditToWallet(amntToCredit, "Color Trade Winning", element.user);
+            await creditToWallet(amntToCredit, "Rang-bazi Winning", element.user);
         }
     }
 }
