@@ -15,9 +15,16 @@ const ColorResult = ({
     setInterval(() => setranNum(Math.floor(Math.random() * 9 + 1)), 222);
   }, [getTradeRecords]);
 
-  if (timerVal === 1) {
+  const [isApiCalled, setApiCalled] = useState(false);
+  
+  if (timerVal === 2 && !isApiCalled) {
     getTradeRecords();
+    setApiCalled(true);
   }
+
+  if(timerVal > 10 && isApiCalled) {
+    setApiCalled(true);
+  }  
   
   return (
     <div className="rslt-dsply">

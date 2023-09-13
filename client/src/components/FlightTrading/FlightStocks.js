@@ -26,7 +26,7 @@ const FlightStocks = ({ tradingClose, timerVal, wlt }) => {
             setStockItem(itm);
           }}
         >
-          {itm}
+          {itm}X
         </div>
       ))}
       {showPopup && (

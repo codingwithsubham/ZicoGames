@@ -1110,6 +1110,10 @@ img.wl-icn {
   background: #111;
 }
 
+p.info-app {
+  font-size: 10px;
+}
+
 @media only screen and (max-width: 600px) {
   .vld-lding img {
     height: 500px;
