@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { closeSidebar, openSidebar } from "../../actions/layout";
+import { showulDisplay } from "../../common/functions";
 
 function useWindowSize() {
   const [size, setSize] = useState([0, 0]);
@@ -23,6 +24,7 @@ const Sidebar = ({
   closeSidebar,
 }) => {
   const [width] = useWindowSize();
+  const display = showulDisplay();
   return (
     isAuthenticated &&
     user && (
@@ -35,6 +37,7 @@ const Sidebar = ({
             : { width: "0%" }
         }
       >
+        {isSidebarOpen && <div className="sidebar-bg" onClick={() => closeSidebar()} />}
         <div className="sidebar-content">
           {width <= 600 && (
             <button className="sidebar-closebtn" onClick={() => closeSidebar()}>
@@ -43,15 +46,12 @@ const Sidebar = ({
           )}
           <div className="sidebar-header">
             <div className="title">
-              <p>CnF</p>
+              <p>Zico</p>
             </div>
           </div>
           <div className="sidebar-links">
             {user?.role === "admin" ? (
               <Fragment>
-                <NavLink exact to="/tp-up-aprv" onClick={() => closeSidebar()}>
-                  Approve Topups
-                </NavLink>
                 <NavLink
                   exact
                   to="/wth-dwl-aprv"
@@ -68,17 +68,35 @@ const Sidebar = ({
                 <NavLink exact to="/home" onClick={() => closeSidebar()}>
                   Home
                 </NavLink>
+                <NavLink exact to="/5m-trading" onClick={() => closeSidebar()}>
+                  Number Game
+                </NavLink>
+                <NavLink exact to="/color-trading" onClick={() => closeSidebar()}>
+                  Color Game
+                </NavLink>
                 <NavLink exact to="/wallet" onClick={() => closeSidebar()}>
                   Wallet
                 </NavLink>
-                <NavLink exact to="/withdrawl" onClick={() => closeSidebar()}>
+                {display && <NavLink exact to="/withdrawl" onClick={() => closeSidebar()}>
                   Withdrawl
+                </NavLink>}
+                <NavLink exact to="/" onClick={() => closeSidebar()}>
+                  Privacy Policy
+                </NavLink>
+                <NavLink exact to="/" onClick={() => closeSidebar()}>
+                  Terms of Use
+                </NavLink>
+                <NavLink exact to="/" onClick={() => closeSidebar()}>
+                  Disclaimer
+                </NavLink>
+                <NavLink exact to="/" onClick={() => closeSidebar()}>
+                  About Us
+                </NavLink>
+                <NavLink exact to="/" onClick={() => closeSidebar()}>
+                  Contact Us
                 </NavLink>
               </Fragment>
             )}
-            <a href="https://easyachieve.co.in/" onClick={() => closeSidebar()}>
-              Easy Achieve
-            </a>
           </div>
         </div>
       </div>

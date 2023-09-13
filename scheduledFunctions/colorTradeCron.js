@@ -3,7 +3,7 @@ const ColorTrade = require("../models/ColorTrade");
 const { setResult, createNewTrade, distributeWinning } = require("../zFunctions/colorTrade");
 
 exports.init = () => {
-  const colorTradeCron = CronJob.schedule("*/3 * * * *", async () => {
+  const colorTradeCron = CronJob.schedule("*/1 * * * *", async () => {
     try {
       const trads = await ColorTrade.find();
       if (trads.length > 0) {

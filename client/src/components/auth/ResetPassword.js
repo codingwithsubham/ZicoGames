@@ -27,45 +27,46 @@ const ResetPassword = ({ resetPassword }) => {
     <Fragment>
       <div className="login-wrapper">
         <div className="login-screen">
-        <div className="bg-login" />
-          <h1>Enter a New Password</h1>
-          <form
-            className="login-form insta-an"
-            onSubmit={(e) => handleSubmit(e)}
-          >
-            {error && (
-              <div className="error insta-slide">
-                {error} !! Please Enter Again !!
+          <div className="lgin-frm">
+            <h1>Enter a New Password</h1>
+            <form
+              className="login-form insta-an"
+              onSubmit={(e) => handleSubmit(e)}
+            >
+              {error && (
+                <div className="error insta-slide">
+                  {error} !! Please Enter Again !!
+                </div>
+              )}
+              <div className="inpt-group">
+                <label>Password</label>
+                <input
+                  id="password"
+                  type={type ? "text" : "password"}
+                  name="password"
+                  value={password}
+                  onChange={(e) => handleChange(e)}
+                />
+                <span onClick={() => SetType(!type)}>
+                  <i className="fa fa-eye"></i>
+                </span>
               </div>
-            )}
-            <div className="inpt-group">
-              <label>Password</label>
-              <input
-                id="password"
-                type={type ? "text" : "password"}
-                name="password"
-                value={password}
-                onChange={(e) => handleChange(e)}
-              />
-              <span onClick={() => SetType(!type)}>
-                <i className="fa fa-eye"></i>
-              </span>
-            </div>
-            <div className="inpt-group">
-              <label>Confirm Password</label>
-              <input
-                id="confPass"
-                type={type ? "text" : "password"}
-                name="confPass"
-                value={confPass}
-                onChange={(e) => handleChange(e)}
-              />
-              <span onClick={() => SetType(!type)}>
-                <i className="fa fa-eye"></i>
-              </span>
-            </div>
-            <button className="btn big">Submit</button>
-          </form>
+              <div className="inpt-group">
+                <label>Confirm Password</label>
+                <input
+                  id="confPass"
+                  type={type ? "text" : "password"}
+                  name="confPass"
+                  value={confPass}
+                  onChange={(e) => handleChange(e)}
+                />
+                <span onClick={() => SetType(!type)}>
+                  <i className="fa fa-eye"></i>
+                </span>
+              </div>
+              <button className="btn big">Submit</button>
+            </form>
+          </div>
         </div>
       </div>
     </Fragment>

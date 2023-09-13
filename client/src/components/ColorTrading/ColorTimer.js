@@ -23,10 +23,10 @@ const ColorTimer = ({
       const dt1 = new Date();
       const dt2 = new Date(trdData?.startTime);
       const diff = (dt2.getTime() - dt1.getTime()) / 1000;
-      const diffTimer = 190 - Math.abs(Math.round(diff));
+      const diffTimer = 70 - Math.abs(Math.round(diff));
       if (diffTimer <= 0) {
         start();
-        advanceTime(190);
+        advanceTime(70);
       } else {
         start();
         advanceTime(-(diffTimer));

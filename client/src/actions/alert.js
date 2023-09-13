@@ -3,7 +3,7 @@ import { SET_ALERT, REMOVE_ALERT, SET_INSTA_ALERT, REMOVE_INSTA_ALERT } from "./
 export const setAlert =
   (msg, alertType, timeout = 5000) =>
   (dispatch) => {
-    const id = Math.ramdom();
+    const id = Math.floor(Math.random() * 999);
     dispatch({
       type: SET_ALERT,
       payload: { msg, alertType, id },
@@ -15,7 +15,7 @@ export const setAlert =
 export const setInstaAlert =
   (msg, type, timeout = 9000) =>
   (dispatch) => {
-    const id = Math.ramdom();
+    const id = Math.floor(Math.random() * 999);
     dispatch({
       type: SET_INSTA_ALERT,
       payload: { msg, type, id },

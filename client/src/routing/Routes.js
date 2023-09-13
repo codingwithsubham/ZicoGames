@@ -17,7 +17,9 @@ import SubmitWithdrawlReq from "../components/withdrawl/SubmitWithdrawlReq";
 import ApproveWithdrawlRequest from "../components/admin/ApproveWithdrawlRequest";
 import TradeRecord from "../components/admin/TradeRecord";
 import Register from "../components/auth/Register";
+import ResetPassword from "../components/auth/ResetPassword";
 import { showulDisplay } from "../common/functions";
+import Profile from "../components/profile/Profile";
 
 const Routes = ({ layout: { isSidebarOpen }, auth: { user } }) => {
   const display = showulDisplay();
@@ -30,13 +32,15 @@ const Routes = ({ layout: { isSidebarOpen }, auth: { user } }) => {
       <ScrollToTop />
       <Switch>
         <Route exact path="/register/refferal/:id" component={Register} />
+        <PrivateRoute exact path="/reset-password" component={ResetPassword} />
         <PrivateRoute exact path="/home" component={Home} />
         <PrivateRoute exact path="/5m-trading" component={FiveMTrading} />
         <PrivateRoute exact path="/color-trading" component={ColorTrading} />
+        <PrivateRoute exact path="/wallet" component={Wallet} />
+        <PrivateRoute exact path="/profile" component={Profile} />
         {
           display && <Fragment>
             <PrivateRoute exact path="/wallet-top-up" component={WalletTopup} />
-            <PrivateRoute exact path="/wallet" component={Wallet} />
             <PrivateRoute exact path="/withdrawl" component={Withdrawl} />
             <PrivateRoute exact path="/submit-withdrawl/:blnc" component={SubmitWithdrawlReq} />
           </Fragment>

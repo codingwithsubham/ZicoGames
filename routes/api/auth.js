@@ -173,4 +173,25 @@ router.post("/self-register", auth, async (req, res) => {
   }
 });
 
+// @route PUT api/auth
+// @desc Update User
+// @access Private
+router.post("/update-user/:type", auth, async (req, res) => {
+  try {
+    const { user } = req.body;
+    const userData = await User.findById(req.user.id).select("-password");
+    if (!userData) {
+      res.status(STATUS_CODE_400).json({ errors: [{ msg: BAD_REQUEST }] });
+    }
+    if (req.params.type === "bank") {
+      userData.bankDetails = user.bankDetails;
+    }
+    await userData.save();
+    return res.json(userData);
+  } catch (error) {
+    console.log(error);
+    return res.status(STATUS_CODE_500).send(SERVER_ERROR);
+  }
+});
+
 module.exports = router;

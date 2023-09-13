@@ -1,26 +1,33 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import { showulDisplay } from "../../common/functions";
 
-const BottomBar = ({auth: { isAuthenticated, user }}) => {
-  return isAuthenticated && user && (
-    <div className="btm-bar">
-      <div className="btm-bar-wrap">
-          <Link to="/home">
+const BottomBar = ({ auth: { isAuthenticated, user } }) => {
+  const display = showulDisplay();
+  return (
+    isAuthenticated &&
+    user && (
+      <div className="btm-bar">
+        <div className="btm-bar-wrap">
+          <NavLink to="/home">
             <i className="fa fa-home"></i>
             <div className="btm-txt">Home</div>
-          </Link>
-          <Link to="/wallet">
+          </NavLink>
+          <NavLink to="/wallet">
             <i className="fa fa-money"></i>
             <div className="btm-txt">Wallet</div>
-          </Link>
-          <Link to="/withdrawl">
-            <i className="fa fa-bank"></i>
-            <div className="btm-txt">Withdrawl</div>
-          </Link>
+          </NavLink>
+          {display && (
+            <NavLink to="/withdrawl">
+              <i className="fa fa-bank"></i>
+              <div className="btm-txt">Payout</div>
+            </NavLink>
+          )}
         </div>
-    </div>
+      </div>
+    )
   );
 };
 
@@ -31,5 +38,4 @@ const mapStateToProps = (state) => ({
   auth: state.auth,
 });
 
-export default connect(mapStateToProps, {
-})(BottomBar);
+export default connect(mapStateToProps, {})(BottomBar);

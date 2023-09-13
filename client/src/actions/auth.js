@@ -76,7 +76,7 @@ export const register = (body) => async (dispatch) => {
   }
 };
 
-//Verify OTP and Login
+//Login
 export const login = (body) => async (dispatch) => {
   try {
     dispatch({
@@ -90,7 +90,8 @@ export const login = (body) => async (dispatch) => {
     dispatch(setAlert("Welcome Back", "success"));
     dispatch(loadUser());
   } catch (err) {
-    const errors = err.response.data.errors;
+    console.log(err);
+    const errors = err?.response?.data?.errors;
     dispatch({
       type: LOGIN_FAIL,
       payload: errors,

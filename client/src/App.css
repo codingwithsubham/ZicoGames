@@ -80,7 +80,7 @@ img.cnf-icn {
   height: 150px;
   background: linear-gradient(180deg, #4caf50b8, transparent);
   padding: 10px;
-  border-radius: 10%;
+  border-radius: 50%;
 }
 
 .cnf-itm {
@@ -102,7 +102,7 @@ img.cnf-icn {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #1e1e1e;
+  background: #ff980026;
   width: 92%;
   margin: 5% 0%;
   padding: 2%;
@@ -362,7 +362,7 @@ marquee.win-marq {
   position: fixed !important;
   bottom: 0;
   width: -webkit-fill-available;
-  background: #fff;
+  background: #111;
   height: 70%;
   left: 0;
   border-radius: 20px 20px 0px 0px;
@@ -402,7 +402,7 @@ marquee.win-marq {
 }
 
 .trd-sttr-bdy {
-  background: #eee;
+  background: #111;
   margin: 5px;
   border-radius: 10px;
   padding: 10px;
@@ -428,7 +428,7 @@ marquee.win-marq {
 
 .invst-opts p {
   border-radius: 5px;
-  background: #fff;
+  background: #1f1f1f;
   padding: 5px 15px;
   font-size: 20px;
 }
@@ -445,7 +445,7 @@ marquee.win-marq {
 
 .mltply-opts p {
   border-radius: 5px;
-  background: #fff;
+  background: #1f1f1f;
   padding: 5px 15px;
   font-size: 20px;
 }
@@ -637,6 +637,7 @@ table.trd-rcrds-table {
 .wlt-tpup {
   width: -webkit-fill-available;
   padding: 10px;
+  margin: 10px 0px 30px;
 }
 
 .tpup-hdr {
@@ -732,7 +733,7 @@ table.trd-rcrds-table {
 }
 
 .admn-wrpr {
-  width: 100%;
+  width: -webkit-fill-available;
   overflow: scroll;
   padding: 10px;
 }
@@ -819,7 +820,7 @@ table.trd-rcrds-table {
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 16px;
+  border-radius: 49%;
 }
 
 .dclr-frm {
@@ -1063,6 +1064,31 @@ img.wl-icn {
   justify-content: center;
   align-items: center;
 }
+
+.sidebar-bg {
+  position: absolute;
+  background: #000000ba;
+  left: 100%;
+  top: 0;
+  width: 50vw;
+  height: 100vh;
+  z-index: 0;
+}
+
+.btm-bar-wrap a.active {
+  background: #353434;
+  min-width: 130px;
+  min-height: 50px;
+  border-radius: 10px;
+  animation: slide-right 0.2s;
+  -webkit-animation: slide-right 0.2s;
+  transition: 0.2s;
+  position: relative;
+}
+
+.btm-bar-wrap a.active .btm-txt {
+  display: block;
+} 
 
 @media only screen and (max-width: 600px) {
   .vld-lding img {

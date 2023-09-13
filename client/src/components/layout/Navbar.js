@@ -65,7 +65,7 @@ const Navbar = ({
                   Welcome Back!
                 </div>
               ) : (
-                <h1 className="insta-slide-up">CnF</h1>
+                <h1 className="insta-slide-up">Zico</h1>
               )
             ) : (
               <div style={{ textTransform: "uppercase" }}>{rawPath}</div>
@@ -82,22 +82,21 @@ const Navbar = ({
             <i className="fa fa-bell" aria-hidden="true"></i>
             <div className="dropdown-content">
               <div className="notification">
-                <div className="notification-item">It's a Notification</div>
-                <div className="notification-item">It's a Notification</div>
-                <div className="notification-item">It's a Notification</div>
+                <div className="notification-item">Game is Live</div>
+                <div className="notification-item">Welcome to Zico</div>
               </div>
             </div>
           </div>
           <div className="user">
             <i className="fa fa-user" aria-hidden="true"></i>
             <div className="dropdown-content">
-              <p onClick={() => logout()}>Logout</p>
               <Link to="/reset-password">
                 Reset Password
               </Link>
               <Link to="/profile">
                 Profile
               </Link>
+              <p onClick={() => logout()}>Logout</p>
             </div>
           </div>
         </div>

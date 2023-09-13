@@ -7,7 +7,7 @@ import { Redirect } from "react-router-dom";
 const Login = ({
   loadUser,
   login,
-  auth: {user, isAuthenticated, error },
+  auth: { user, isAuthenticated, error },
 }) => {
   useEffect(() => {
     loadUser();
@@ -17,7 +17,7 @@ const Login = ({
   let dt = new Date();
 
   const loginToPortal = () => {
-      setOpenLogin(true);
+    setOpenLogin(true);
   };
 
   const [formdata, setFormdata] = useState({
@@ -50,49 +50,50 @@ const Login = ({
       {openLogin ? (
         <Fragment>
           <div className="login-screen">
-          <div className="bg-login"/>
-            <div className="title">Login</div>
-            <div className="subtitle">Use your Zico Account to Login</div>
-            <form className="login-form insta-an" onSubmit={(e) => handleSubmit(e)}>
-              {error &&
-                error.map((itm) => (
-                  <div key={itm} className="error insta-slide">
-                    {itm.msg} !! Please Enter Again !!
-                  </div>
-                ))}
-              <div className="inpt-group">
-                <label>Ph Number</label>
-                <input
-                  id="mobile"
-                  type="text"
-                  name="mobile"
-                  value={mobile}
-                  onChange={(e) => handleChange(e)}
-                />
+            <div className="bg-login" />
+            <div className="lgin-frm">
+              <div className="title">Login</div>
+              <div className="subtitle">Use your Zico Account to Login</div>
+              <form className="login-form insta-an" onSubmit={(e) => handleSubmit(e)}>
+                {error &&
+                  error.map((itm) => (
+                    <div key={itm} className="error insta-slide">
+                      {itm.msg} !! Please Enter Again !!
+                    </div>
+                  ))}
+                <div className="inpt-group">
+                  <label>Ph Number</label>
+                  <input
+                    id="mobile"
+                    type="text"
+                    name="mobile"
+                    value={mobile}
+                    onChange={(e) => handleChange(e)}
+                  />
+                </div>
+                <div className="inpt-group">
+                  <label>Password</label>
+                  <input
+                    id="password"
+                    type={type ? "text" : "password"}
+                    name="password"
+                    value={password}
+                    onChange={(e) => handleChange(e)}
+                  />
+                  <i className="fa fa-eye" onClick={() => SetType(!type)} ></i>
+                </div>
+                <button className="btn big">Sign in</button>
+              </form>
+              <div className="footer-text">
+                Copyright© {dt.getFullYear()} Zico Games.
               </div>
-              <div className="inpt-group">
-                <label>Password</label>
-                <input
-                  id="password"
-                   type={type? "text" : "password"}
-                  name="password"
-                  value={password}
-                  onChange={(e) => handleChange(e)}
-                />
-                <i className="fa fa-eye" onClick={() => SetType(!type)} ></i>
-              </div>
-              <button className="btn big">Sign in</button>
-            </form>
-
-            <div className="footer-text">
-              Copyright© {dt.getFullYear()} Zico Games.
             </div>
           </div>
         </Fragment>
       ) : (
         <Fragment>
           <div className="welcome-screen">
-            <div className="bg-login"/>
+            <div className="bg-login" />
             <div className="welcome-texts insta-an">
               <img src={require("../../static/3.png")} alt="" className="wl-icn" />
               <div className="pre-title">Welcome to,</div>

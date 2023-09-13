@@ -34,9 +34,14 @@ img.lg-logo {
   position: absolute;
   top: 0px;
   left: 0px;
-  z-index: -999;
   background-color: #00000078;
   background-blend-mode: darken;
+}
+
+.lgin-frm {
+  z-index: 1;
+  position: relative;
+  display: block;
 }
 
 .welcome-screen img.logo {
@@ -122,7 +127,7 @@ form.login-form {
 }
 
 .navbar {
-  transition: 0.9s;
+  transition: 0.1s;
   height: 50px;
   background: #1e1e1e;
   display: flex;
@@ -241,7 +246,7 @@ form.login-form {
 }
 
 .sidebar-links a.active {
-  font-size: 20px;
+  font-size: 26px;
   color: #4caf50;
 }
 
@@ -442,7 +447,7 @@ div#main {
 }
 
 .lbl {
-  background: #1e1e1e;
+  background: #f443364d;
   width: max-content;
   padding: 10px;
   border-radius: 6px;
@@ -451,7 +456,7 @@ div#main {
 
 .link {
   padding: 10px;
-  background: #1f1f1f;
+  background: #4caf504a;
   margin: 5px 0px;
   border-radius: 5px;
   overflow-x: overlay;
@@ -668,7 +673,6 @@ table.styled-table {
 .btm-bar-wrap a {
   color: #4caf50;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   text-decoration: none;
@@ -680,7 +684,9 @@ table.styled-table {
 
 .btm-txt {
   color: #4caf50;
-  font-size: 12px;
+  font-size: 18px;
+  margin-left: 10px;
+  display: none;
 }
 
 button.btn.pyout {
@@ -702,7 +708,9 @@ button.btn.pyout-sbmt {
 }
 
 .profile {
-  width: 100%;
+  width: 92%;
+  padding: 4%;
+  margin-bottom: 20px;
 }
 
 .dtls {
@@ -855,8 +863,7 @@ div#treeWrapper {
 /*Now Tree CSS*/
 
 .update-bnk {
-  margin: 20px 0px;
-  padding: 10px 10px 0px 0px;
+  padding: 0px 10px 0px 0px;
 }
 
 .update-bnk button.btn.sm {
@@ -1035,7 +1042,7 @@ button.btn.popup-sm {
   display: block;
   text-decoration: none;
   color: #4caf50;
-  border-top: 1px solid;
+  border-bottom: 1px solid;
   padding: 8px;
 }
 
@@ -1054,11 +1061,11 @@ button.btn.export-xl {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: #fbfbfb;
 }
 
 .not-found img {
   width: 40%;
+  border-radius: 30px;
 }
 
 .bnr {
@@ -1731,7 +1738,7 @@ img.hro-tp-cnf {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  background: #1f1f1f;
+  background: #2196f31c;
   border-radius: 10px;
   margin-top: 10px;
 }
@@ -1868,6 +1875,7 @@ img.hro-tp-cnf {
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 0px;
   }
   .wlt-blnc {
     flex-wrap: wrap;
@@ -1896,8 +1904,8 @@ img.hro-tp-cnf {
     width: 30%;
   }
   .dropdown-content {
-    right: 10px;
-    top: 50px;
+    right: 5px;
+    top: 65px;
   }
   section.container {
     width: 100%;

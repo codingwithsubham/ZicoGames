@@ -4,16 +4,14 @@ import { CREDIT } from "../../common/common";
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import WalletTable from "./WalletTable";
-import { showulDisplay } from "../../common/functions";
 
 const Wallet = () => {
-  const display = showulDisplay();
   const [wlt, setWlt] = useState(null);
   const wltBlnc = (data) => {
     setWlt(data);
   };
   
-  return  display && (
+  return (
     <div className="wlt-wrp insta-an">
       <div className="card-gr">
         <WalletSummry wltBlnc={wltBlnc} />
