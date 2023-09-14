@@ -28,6 +28,7 @@ app.use("/api/user-trade", require("./routes/api/userTradeData"));
 app.use("/api/wallet", require("./routes/api/wallet"));
 app.use("/api/top-up-request", require("./routes/api/topUpRequest"));
 app.use("/api/withdrawl-request", require("./routes/api/withdrawlRequest"));
+app.use("/api/pg", require("./routes/api/pg"));
 
 // Set static folder
 app.use(express.static("client/build"));
