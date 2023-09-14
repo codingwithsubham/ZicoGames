@@ -17,9 +17,6 @@ const FlightTradeSchema = new mongoose.Schema({
         default: LOWER,
     },
     stocks: {
-        1: {
-            type: Number
-        },
         2: {
             type: Number
         },
@@ -30,6 +27,9 @@ const FlightTradeSchema = new mongoose.Schema({
             type: Number
         },
         5: {
+            type: Number
+        },
+        6: {
             type: Number
         },
     }

@@ -66,20 +66,14 @@ const Sidebar = ({
               {display && <NavLink exact to="/withdrawl" onClick={() => closeSidebar()}>
                 Withdrawl
               </NavLink>}
-              <NavLink exact to="/" onClick={() => closeSidebar()}>
+              <NavLink exact to="/privacy" onClick={() => closeSidebar()}>
                 Privacy Policy
               </NavLink>
-              <NavLink exact to="/" onClick={() => closeSidebar()}>
+              <NavLink exact to="/terms" onClick={() => closeSidebar()}>
                 Terms of Use
               </NavLink>
-              <NavLink exact to="/" onClick={() => closeSidebar()}>
-                Disclaimer
-              </NavLink>
-              <NavLink exact to="/" onClick={() => closeSidebar()}>
+              <NavLink exact to="/about" onClick={() => closeSidebar()}>
                 About Us
-              </NavLink>
-              <NavLink exact to="/" onClick={() => closeSidebar()}>
-                Contact Us
               </NavLink>
               {user?.role === "admin" && display && (
               <Fragment>

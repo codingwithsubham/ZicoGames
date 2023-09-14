@@ -15,11 +15,24 @@ const FlightTrade = require("../../models/FlightTrade");
 const { debitToWallet } = require("../../functions/walletFunctions");
 
 // @route GET api/user-trade/ 
-// @desc Get all trade
+// @desc Get all trade by user
 // @access Private
 router.get("/", auth, async (req, res) => {
     try {
         const trdData = await UserTradeData.find({ user: req.user.id });
+        return res.json(trdData);
+    } catch (err) {
+        console.log(err);
+        res.status(STATUS_CODE_500).send(SERVER_ERROR);
+    }
+});
+
+// @route GET api/user-trade/all
+// @desc Get all trade
+// @access Private
+router.get("/all", auth, async (req, res) => {
+    try {
+        const trdData = await UserTradeData.find({}).populate("user");
         return res.json(trdData);
     } catch (err) {
         console.log(err);
@@ -60,8 +73,16 @@ router.post("/set", auth, async (req, res) => {
     const { stock, amnt, tradeId, trdType } = req.body;
     let tradeData = {};
     const date = new Date();
+    let note = "";
+    if (trdType === FIVE_M) {
+        note = "Debit on 1,2 Ka 9";
+    } else if (trdType === COLOR) {
+        note = "Debit on Rang-bazi";
+    } else if (trdType === FLIGHT) {
+        note = "Debit on Patang-bazi";
+    }
     try {
-        await debitToWallet(amnt, `Debit on ${trdType}`, req.user.id);
+        await debitToWallet(amnt, note, req.user.id);
         if (trdType === FIVE_M) {
             tradeData = await FiveMTrade.findById(tradeId);
             tradeData.stocks[stock] = parseInt(tradeData.stocks[stock]) + parseInt(amnt);

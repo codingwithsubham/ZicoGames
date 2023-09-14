@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const UserTradeDataSchema = new mongoose.Schema({
     user: {
         type: mongoose.Schema.Types.ObjectId,
+        ref:"user",
         require: true,
     },
     tradeId: {

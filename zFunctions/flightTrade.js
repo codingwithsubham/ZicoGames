@@ -7,19 +7,17 @@ const { creditToWallet } = require("../functions/walletFunctions");
 
 const distributeWinning = async (trdData) => {
     const usrTrdData = await UserTradeData.find({ tradeId: trdData?._id, 'tradingData.stock': trdData?.result });
-    if(usrTrdData.length > 0){
-        usrTrdData.forEach(async (element) => {
+    if (usrTrdData.length > 0) {
+        for (element of usrTrdData) {
             const amnt = parseInt(element?.tradingData?.amnt) * parseInt(trdData?.result);
-            const admnCharge = (parseInt(amnt) * 10) / 100;
-            const amntToCredit = parseInt(amnt) - parseFloat(admnCharge);
-            await creditToWallet( amntToCredit, "Patang-baaz Winning", element.user)
-        });
+            await creditToWallet(amnt, "Patang-baaz Winning", element?.user)
+        }
     }
 }
 
 const createNewTrade = async (trads) => {
     const date = new Date();
-    if(trads.length >= 20 ){
+    if (trads.length >= 20) {
         const x = trads[0];
         await x.remove();
     }

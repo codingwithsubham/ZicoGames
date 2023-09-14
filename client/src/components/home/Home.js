@@ -1,12 +1,18 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ProductList from "./ProductList";
 import UptimeCounter from "./UptimeCounter";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { selfRegistration } from "../../actions/auth";
+import { getAllTradingData } from "../../actions/userTrading";
 import RefferalBoard from "./RefferalBoard";
+import LiveTradeRecords from "./LiveTradeRecords";
 
-const Home = ({ auth: { user }, selfRegistration }) => {
+const Home = ({ auth: { user, allTimeTrade }, selfRegistration, getAllTradingData }) => {
+  useEffect(() => {
+    getAllTradingData();
+  }, [getAllTradingData]);
+
   const [checked, setChecked] = useState(true);
   const handleSubmit = () => {
     if (checked) {
@@ -42,6 +48,7 @@ const Home = ({ auth: { user }, selfRegistration }) => {
       <RefferalBoard />
       <ProductList />
       <UptimeCounter />
+      <LiveTradeRecords data={allTimeTrade} />
     </div>
   );
 };
@@ -49,6 +56,7 @@ const Home = ({ auth: { user }, selfRegistration }) => {
 Home.propTypes = {
   auth: PropTypes.object.isRequired,
   selfRegistration: PropTypes.func.isRequired,
+  getAllTradingData: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
@@ -57,4 +65,5 @@ const mapStateToProps = (state) => ({
 
 export default connect(mapStateToProps, {
   selfRegistration,
+  getAllTradingData,
 })(Home);

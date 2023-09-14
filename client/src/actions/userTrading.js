@@ -1,7 +1,7 @@
 import axios from "axios";
 import { API_CONFIG } from "../common/constants";
 import { setAlert } from "./alert";
-import { GET_ALL_USR_TRD_DATA, GET_CRR_USR_TRD_DATA, GET_LTST_TRD_DATA } from "./types";
+import { GET_ALL_TRD_DATA, GET_ALL_USR_TRD_DATA, GET_CRR_USR_TRD_DATA, GET_LTST_TRD_DATA } from "./types";
 import { getWallet } from "./wallet"
 
 //get trading data by id for current user
@@ -24,6 +24,20 @@ export const getTradingData = () => async (dispatch) => {
         const res = await axios.get("/api/user-trade", API_CONFIG);
         dispatch({
             type: GET_ALL_USR_TRD_DATA,
+            payload: res.data,
+        });
+        return res.data;
+    } catch (error) {
+        dispatch(setAlert("Can't Fetch Trade data", "danger"));
+    }
+};
+
+//get All trading data
+export const getAllTradingData = () => async (dispatch) => {
+    try {
+        const res = await axios.get("/api/user-trade/all", API_CONFIG);
+        dispatch({
+            type: GET_ALL_TRD_DATA,
             payload: res.data,
         });
         return res.data;

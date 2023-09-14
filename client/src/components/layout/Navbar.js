@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { logout } from "../../actions/auth";
 import { Link, useLocation } from "react-router-dom";
 import { closeSidebar, openSidebar } from "../../actions/layout";
+import { showulDisplay } from "../../common/functions";
 
 const Navbar = ({
   auth: { isAuthenticated, user },
@@ -28,6 +29,8 @@ const Navbar = ({
   const location = useLocation();
   let pathname = location.pathname;
   let rawPath = pathname.split("/")[1];
+  //condi
+  const display = showulDisplay();
   
   return (
     isAuthenticated &&
@@ -90,12 +93,8 @@ const Navbar = ({
           <div className="user">
             <i className="fa fa-user" aria-hidden="true"></i>
             <div className="dropdown-content">
-              <Link to="/reset-password">
-                Reset Password
-              </Link>
-              <Link to="/profile">
-                Profile
-              </Link>
+              <Link to="/reset-password">Reset Password</Link>
+              {display && <Link to="/profile">Profile</Link>}
               <p onClick={() => logout()}>Logout</p>
             </div>
           </div>

@@ -161,6 +161,7 @@ marquee.win-marq {
   margin: 2px 0px;
   padding: 10px;
   border-radius: 10px;
+  color: #000;
 }
 
 .win-itm h3 {
@@ -177,9 +178,10 @@ marquee.win-marq {
 .win-lst {
   width: -webkit-fill-available;
   margin: 5px;
-  background-color: #eee;
+  background-color: #4f2b8e66;
   border-radius: 10px;
   padding: 5px;
+  margin-bottom: 20px;
 }
 
 .up-tme-cuntr {
@@ -631,6 +633,7 @@ table.trd-rcrds-table {
   align-items: center;
   background: #f44336;
   border-radius: 10px;
+  font-size: 50px;
 }
 
 .wlt-tpup {
@@ -1091,15 +1094,22 @@ img.wl-icn {
 
 .roller-anim {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  width: 80%;
+  width: 90%;
+  flex-wrap: wrap;
+}
+
+.roller-anim marquee {
+  width: 100%;
+  margin-top: -15px;
+  margin-bottom: 5px;
 }
 
 .roller-anim img {
-  width: 150px;
-  height: 120px;
+  width: 30%;
   object-fit: cover;
+  transition: 2s;
 }
 
 .trade-wrap-flight {
@@ -1112,6 +1122,11 @@ img.wl-icn {
 
 p.info-app {
   font-size: 10px;
+}
+
+.pages {
+  padding: 10px 25px;
+  margin-bottom: 50px;
 }
 
 @media only screen and (max-width: 600px) {

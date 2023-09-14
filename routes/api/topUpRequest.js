@@ -35,13 +35,8 @@ router.post("/approve", auth, async (req, res) => {
             { _id: id },
             { $set: { status: APPROVED } }
         );
-        const wallet = await creditToWallet(tpupData.blnc, "Top-Up Added", tpupData.user);
-        const user = await User.findOne({ _id: tpupData.user });
-        if (!user.status) {
-            user.status = true;
-            await user.save();
-        }
-        return res.json(wallet);
+        await disburshWalletCredit(tpupData?.blnc, tpupData?.user);
+        return res.json({status: true});
     } catch (err) {
         console.log(err);
         res.status(STATUS_CODE_500).send(SERVER_ERROR);
@@ -91,5 +86,24 @@ router.post("/submit", auth, async (req, res) => {
         res.status(STATUS_CODE_500).send(SERVER_ERROR);
     }
 });
+
+const disburshWalletCredit = async (blnc, id) => {
+    const perct = [8,0.5,0.5,0.5,0.5]
+    let user = await User.findOne({ _id: id }).populate("upline");
+    await creditToWallet(parseInt(blnc), "Top-Up Added", user?._id);
+    if (!user.status) {
+      user.status = true;
+      await user.save();
+    }
+    for (element of perct) {
+      const amnt = (parseInt(blnc) * element) / 100;
+      if(user?.upline){
+        await creditToWallet(parseInt(amnt), "Top-Up Added", user?.upline);
+        user = await User.findOne({ _id: user?.upline }).populate("upline");
+      } else {
+        user = null;
+      }
+    }
+  }
 
 module.exports = router;

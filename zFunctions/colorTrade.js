@@ -14,9 +14,7 @@ const distributeWinning = async (trdData) => {
     if (usrTrdData.length > 0) {
         for (element of usrTrdData) {
             const amnt = parseInt(element?.tradingData?.amnt) * parseInt(mltipy);
-            const admnCharge = (parseInt(amnt) * 10) / 100;
-            const amntToCredit = parseInt(amnt) - parseFloat(admnCharge);
-            await creditToWallet(amntToCredit, "Rang-bazi Winning", element.user);
+            await creditToWallet(amnt, "Rang-bazi Winning", element?.user);
         }
     }
 }

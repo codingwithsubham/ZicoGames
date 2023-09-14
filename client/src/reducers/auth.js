@@ -11,6 +11,7 @@ import {
   GET_CRR_USR_TRD_DATA,
   GET_ALL_USR_TRD_DATA,
   GET_LTST_TRD_DATA,
+  GET_ALL_TRD_DATA,
 } from "../actions/types";
 
 const initialState = {
@@ -22,6 +23,7 @@ const initialState = {
   error: null,
   allTradingData: [],
   currenTradingData: [],
+  allTimeTrade: []
 };
 
 export default function (state = initialState, action) {
@@ -81,14 +83,20 @@ export default function (state = initialState, action) {
       case GET_ALL_USR_TRD_DATA:
       return {
         ...state,
-        allTradingData: payload,
+        allTradingData: payload.reverse(),
+      };
+
+      case GET_ALL_TRD_DATA:
+      return {
+        ...state,
+        allTimeTrade: payload.reverse(),
       };
 
       case GET_LTST_TRD_DATA:
       case GET_CRR_USR_TRD_DATA:
       return {
         ...state,
-        currenTradingData: payload,
+        currenTradingData: payload.reverse(),
       };
 
     default:

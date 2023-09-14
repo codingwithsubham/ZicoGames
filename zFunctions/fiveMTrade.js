@@ -8,12 +8,10 @@ const { creditToWallet } = require("../functions/walletFunctions");
 const distributeWinning = async (trdData) => {
     const usrTrdData = await UserTradeData.find({ tradeId: trdData?._id, 'tradingData.stock': trdData?.result });
     if(usrTrdData.length > 0){
-        usrTrdData.forEach(async (element) => {
+        for (element of usrTrdData) {
             const amnt = parseInt(element?.tradingData?.amnt) * 9;
-            const admnCharge = (parseInt(amnt) * 10) / 100;
-            const amntToCredit = parseInt(amnt) - parseFloat(admnCharge);
-            await creditToWallet( amntToCredit, "1,2 ka 9 Winning", element.user)
-        });
+            await creditToWallet( amnt, "1,2 ka 9 Winning", element?.user)
+        }
     }
 }
 

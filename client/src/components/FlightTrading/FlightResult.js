@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import FlipNumbers from "react-flip-numbers";
 import { getTradeRecords } from "../../actions/flightTrade";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import { track } from "../../common/randomData.json"
 
 const FlightResult = ({ tradingClose, timerVal, flightTrade: { allTrdData }, getTradeRecords }) => {
   const [ranNum, setranNum] = useState(9);
@@ -20,7 +20,7 @@ const FlightResult = ({ tradingClose, timerVal, flightTrade: { allTrdData }, get
 
   if(timerVal > 10 && isApiCalled) {
     setApiCalled(true);
-  }  
+  }
 
   return (
     <div className='rslt-dsply'>
@@ -30,15 +30,11 @@ const FlightResult = ({ tradingClose, timerVal, flightTrade: { allTrdData }, get
           <div className='roller-anim'>
             <img src={require("../../static/flight.gif")} alt="" />
             <div className='flpr'>
-              <FlipNumbers
-                play
-                color="#fff"
-                background="#f44336"
-                width={50}
-                height={50}
-                numbers={`${ranNum}`}
-              />
+              {ranNum}
             </div>
+            <marquee direction="left" scrollamount={10}>
+            {track}
+            </marquee>
           </div>
           <p>Stockes are rolled to win.</p>
         </div>

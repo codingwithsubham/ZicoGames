@@ -14,6 +14,9 @@ import Footer from "./components/layout/Footer";
 import BottomBar from "./components/layout/BottomBar";
 import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
+import privacyPolicy from "./components/pages/privacyPolicy";
+import Terms from "./components/pages/Terms";
+import Aboutus from "./components/pages/Aboutus";
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);
@@ -52,6 +55,9 @@ const App = () => {
                 <div className="main-content">
                   <Switch>
                   <Route exact path="/" component={Login} />
+                  <Route exact path="/privacy" component={privacyPolicy} />
+                  <Route exact path="/terms" component={Terms} />
+                  <Route exact path="/about" component={Aboutus} />
                   <Route path="/login" component={Login} />
                   <Route exact path="/register" component={Register} />
                     <Route component={Routes} />

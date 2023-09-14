@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import FlightTradeSetter from "./FlightTradeSetter";
 
 const FlightStocks = ({ tradingClose, timerVal, wlt }) => {
-  const stocks = [1,2,3,4,5];
+  const stocks = [2,3,4,5,6];
   const [stockItem, setStockItem] = useState(null);
   const [showPopup, setShowPopup] = useState(false);
   const handleClose = () => {

@@ -128,7 +128,7 @@ const FlightTradeSetter = ({
             alt=""
             className="winz-img"
           />
-          <h2>{stock === "yellow" ? "3X" : "2X"}</h2>
+          <h2>{stock}X</h2>
           <h3>Return</h3>
         </div>
         <div className="trd-sttr-ftr">

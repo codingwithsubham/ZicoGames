@@ -49,6 +49,7 @@ export const GET_UNLOCKED_POOL = "GET_UNLOCKED_POOL";
 export const GET_LATST_TRD = "GET_LATST_TRD";
 export const GET_TRD_RCRD = "GET_TRD_RCRD";
 export const GET_ALL_USR_TRD_DATA = "GET_ALL_USR_TRD_DATA";
+export const GET_ALL_TRD_DATA = "GET_ALL_TRD_DATA";
 export const GET_CRR_USR_TRD_DATA = "GET_CRR_USR_TRD_DATA";
 export const GET_LTST_TRD_DATA = "GET_LTST_TRD_DATA";
 export const GET_TPUP_REQS = "GET_TPUP_REQS";

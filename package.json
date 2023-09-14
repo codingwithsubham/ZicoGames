@@ -1,7 +1,7 @@
 {
-  "name": "ea",
-  "version": "2.0.0",
-  "description": "Easy Achieve 2.0",
+  "name": "zico",
+  "version": "1.0.0",
+  "description": "Zico Games Ltd.",
   "main": "server.js",
   "scripts": {
     "start": "node server",
