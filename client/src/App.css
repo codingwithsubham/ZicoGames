@@ -177,7 +177,6 @@ marquee.win-marq {
 
 .win-lst {
   width: -webkit-fill-available;
-  margin: 5px;
   background-color: #4f2b8e66;
   border-radius: 10px;
   padding: 5px;
@@ -543,7 +542,7 @@ table.trd-rcrds-table {
   font-size: 14px;
   font-weight: 400;
   text-align: center;
-  color: #000;
+  color: #ffffff;
 }
 
 .card-yl {
@@ -1127,6 +1126,97 @@ p.info-app {
 .pages {
   padding: 10px 25px;
   margin-bottom: 50px;
+}
+
+.icn-lst {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0px;
+}
+
+.icn-itm {
+  width: 33%;
+  margin: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #0000007a;
+  padding: 15px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #fff;
+}
+
+.icn-itm i {
+  width: 50px;
+  height: 50px;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  font-size: 35px !important;
+}
+
+.icn-itm p {
+  text-align: center;
+  font-size: 10px;
+}
+
+.qk-acc {
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 20px;
+}
+
+.tot-wlt-re {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+.icn-bx {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.icn-bx i {
+  font-size: 100px;
+  color: #ffeb3b78;
+}
+
+.icn-bx p {
+  position: absolute;
+  font-size: 40px !important;
+  text-shadow: 0px 0px 10px #000;
+}
+
+.inst-on {
+  padding: 10px;
+  background-color: #11111191;
+  margin: 3px 0px;
+  border-radius: 10px;
+}
+
+.invsts {
+  margin-top: 20px;
+}
+
+.react-tabs table {
+  color: #000 !important;
+}
+
+.float-timer {
+  float: right;
+  position: relative;
+  margin-top: -40px;
+  background: #111111ad;
+  padding: 10px;
+  font-size: 20px;
+  border-radius: 10px;
 }
 
 @media only screen and (max-width: 600px) {

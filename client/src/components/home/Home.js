@@ -7,12 +7,16 @@ import { selfRegistration } from "../../actions/auth";
 import { getAllTradingData } from "../../actions/userTrading";
 import RefferalBoard from "./RefferalBoard";
 import LiveTradeRecords from "./LiveTradeRecords";
+import { showulDisplay } from "../../common/functions";
+import QuickAccess from "./QuickAccess";
+import TotalWalletTops from "./TotalWalletTops";
 
 const Home = ({ auth: { user, allTimeTrade }, selfRegistration, getAllTradingData }) => {
   useEffect(() => {
     getAllTradingData();
   }, [getAllTradingData]);
 
+  const display = showulDisplay();
   const [checked, setChecked] = useState(true);
   const handleSubmit = () => {
     if (checked) {
@@ -46,8 +50,9 @@ const Home = ({ auth: { user, allTimeTrade }, selfRegistration, getAllTradingDat
   ) : (
     <div className="hme-wrap insta-an">
       <RefferalBoard />
-      <ProductList />
       <UptimeCounter />
+      {!display ? <ProductList /> : <QuickAccess />}
+      {display && <TotalWalletTops />}
       <LiveTradeRecords data={allTimeTrade} />
     </div>
   );

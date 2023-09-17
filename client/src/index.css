@@ -293,15 +293,15 @@ input[type="file"] {
 }
 
 .insta-an {
-  animation: slideUp-mini 0.5s;
-  -webkit-animation: slideUp-mini 0.5s;
-  transition: 1s;
+  animation: slideUp-mini 0.2s;
+  -webkit-animation: slideUp-mini 0.2s;
+  transition: 0.2s;
   position: relative;
 }
 
 @keyframes slideUp-mini {
   from {
-    bottom: -100px;
+    bottom: -40px;
   }
   to {
     bottom: 0px;

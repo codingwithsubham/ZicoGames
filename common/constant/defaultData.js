@@ -1,9 +1,9 @@
-const { LOWER } = require("./constants");
+const { LOWER, RUNNUNG } = require("./constants");
 
 module.exports = {
     fiveMTradeDefault: {
         totalTrade: 0,
-        result: "Running",
+        result: RUNNUNG,
         returnLogic: LOWER,
         stocks: {
             0: 0,
@@ -20,7 +20,7 @@ module.exports = {
     },
     colorTradeDefault: {
         totalTrade: 0,
-        result: "Running",
+        result: RUNNUNG,
         returnLogic: LOWER,
         stocks: {
             red: 0,
@@ -30,7 +30,7 @@ module.exports = {
     },
     flightTradeDefault: {
         totalTrade: 0,
-        result: "Running",
+        result: RUNNUNG,
         returnLogic: LOWER,
         stocks: {
             2: 0,

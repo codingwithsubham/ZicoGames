@@ -53,4 +53,21 @@ router.post("/debit", auth, async (req, res) => {
     }
 });
 
+// @route GET api/wallet
+// @desc DEBIT WALLET
+// @access Private
+router.get("/tot-wlt-blnc", auth, async (req, res) => {
+    try {
+        const wallets = await Wallet.find({});
+        let waltBlnc = 0;
+        wallets.map( itm => (
+            waltBlnc = waltBlnc + parseFloat(itm?.blnc)
+        ))
+        return res.json(waltBlnc);
+    } catch (err) {
+        console.log(err);
+        res.status(STATUS_CODE_500).send(SERVER_ERROR);
+    }
+});
+
 module.exports = router;

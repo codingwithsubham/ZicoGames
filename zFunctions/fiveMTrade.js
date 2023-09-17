@@ -1,4 +1,4 @@
-const { LOWER } = require("../common/constant/constants");
+const { LOWER, RUNNUNG } = require("../common/constant/constants");
 const { fiveMTradeDefault } = require("../common/constant/defaultData");
 const FiveMTrade = require("../models/FiveMTrade");
 const UserTradeData = require("../models/UserTradeData");
@@ -7,17 +7,17 @@ const { creditToWallet } = require("../functions/walletFunctions");
 
 const distributeWinning = async (trdData) => {
     const usrTrdData = await UserTradeData.find({ tradeId: trdData?._id, 'tradingData.stock': trdData?.result });
-    if(usrTrdData.length > 0){
+    if (usrTrdData.length > 0) {
         for (element of usrTrdData) {
             const amnt = parseInt(element?.tradingData?.amnt) * 9;
-            await creditToWallet( amnt, "1,2 ka 9 Winning", element?.user)
+            await creditToWallet(amnt, "1,2 ka 9 Winning", element?.user)
         }
     }
 }
 
 const createNewTrade = async (trads) => {
     const date = new Date();
-    if(trads.length >= 20 ){
+    if (trads.length >= 20) {
         const x = trads[0];
         await x.remove();
     }
@@ -30,10 +30,12 @@ const createNewTrade = async (trads) => {
 
 const setResult = async (trdData) => {
     let data = trdData;
-    if (data.returnLogic === LOWER) {
-        const lowerTrade = getLower(trdData);
-        data.result = lowerTrade;
-        await data.save();
+    if (data?.result === RUNNUNG) {
+        if (data.returnLogic === LOWER) {
+            const lowerTrade = getLower(trdData);
+            data.result = lowerTrade;
+            await data.save();
+        }
     }
 }
 

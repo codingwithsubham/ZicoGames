@@ -54,12 +54,6 @@ const Sidebar = ({
               <NavLink exact to="/home" onClick={() => closeSidebar()}>
                 Home
               </NavLink>
-              <NavLink exact to="/5m-trading" onClick={() => closeSidebar()}>
-                Number Game
-              </NavLink>
-              <NavLink exact to="/color-trading" onClick={() => closeSidebar()}>
-                Color Game
-              </NavLink>
               <NavLink exact to="/wallet" onClick={() => closeSidebar()}>
                 Wallet
               </NavLink>

@@ -52,11 +52,11 @@ const ColorResult = ({
             <div
               className="nmbr"
               style={
-                allTrdData[1]?.result === "red"
+                allTrdData[0]?.result === "red"
                 ? { backgroundColor: "#e63d31" }
-                : allTrdData[1]?.result === "yellow"
+                : allTrdData[0]?.result === "yellow"
                 ? { backgroundColor: "#ffeb3b" }
-                : allTrdData[1]?.result === "green"
+                : allTrdData[0]?.result === "green"
                 ? { backgroundColor: "#49aa4d" }
                 : { backgroundColor: "#fff"}
               }

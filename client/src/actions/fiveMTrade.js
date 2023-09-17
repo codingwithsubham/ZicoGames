@@ -29,3 +29,13 @@ export const getTradeRecords = () => async (dispatch) => {
         dispatch(setAlert("Can't Fetch 5M Trade Records", "danger"));
     }
 };
+
+//set trade res
+export const setTradeResult = (body) => async (dispatch) => {
+    try {
+        await axios.post("/api/five-m-trade/set-res", body, API_CONFIG);
+        dispatch(getLatstTrade());
+    } catch (error) {
+        dispatch(setAlert("Can't Set Result", "danger"));
+    }
+};

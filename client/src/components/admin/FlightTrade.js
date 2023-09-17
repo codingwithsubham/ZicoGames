@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { getLatstTrade, setTradeResult } from "../../actions/colorTrade";
+import { getLatstTrade, setTradeResult } from "../../actions/flightTrade";
 import { getLatestTradingData } from "../../actions/userTrading";
 import { useTimer } from "use-timer";
 import { DECREMENTAL } from "../../common/common";
 
-const ColorTrade = ({
+const FlightTrade = ({
   auth: { currenTradingData },
-  colorTrade: { trdData },
+  flightTrade: { trdData },
   getLatstTrade,
   getLatestTradingData,
   setTradeResult,
@@ -24,10 +24,10 @@ const ColorTrade = ({
     const dt1 = new Date();
       const dt2 = new Date(trdData?.startTime);
       const diff = (dt2.getTime() - dt1.getTime()) / 1000;
-      const diffTimer = 60 - Math.abs(Math.round(diff));
+      const diffTimer = 120 - Math.abs(Math.round(diff));
       if (diffTimer <= 0) {
         start();
-        advanceTime(60);
+        advanceTime(120);
       } else {
         start();
         advanceTime(-(diffTimer));
@@ -102,36 +102,55 @@ const ColorTrade = ({
       <div className="invsts">
         <div className="inst-on">
           <div className="stk">
-            <div className="clr-icn" style={{ backgroundColor: "#e63d31" }} />
-            Red :
+            2 :
           </div>
-          <div className="blnc">{getData("red")}</div>
+          <div className="blnc">{getData("2")}</div>
           <div className="actn">
-            {!processing && <button className="btn grn" onClick={() => setResult("red")}>
+            {!processing && <button className="btn grn" onClick={() => setResult("2")}>
               Set
             </button>}
           </div>
         </div>
         <div className="inst-on">
           <div className="stk">
-            <div className="clr-icn" style={{ backgroundColor: "#ffeb3b" }} />
-            Yellow :
+            3 :
           </div>
-          <div className="blnc">{getData("yellow")}</div>
+          <div className="blnc">{getData("3")}</div>
           <div className="actn">
-            {!processing && <button className="btn grn" onClick={() => setResult("yellow")}>
+            {!processing && <button className="btn grn" onClick={() => setResult("3")}>
               Set
             </button>}
           </div>
         </div>
         <div className="inst-on">
           <div className="stk">
-            <div className="clr-icn" style={{ backgroundColor: "#49aa4d" }} />
-            Green :
+            4 :
           </div>
-          <div className="blnc">{getData("green")}</div>
+          <div className="blnc">{getData("4")}</div>
           <div className="actn">
-           {!processing && <button className="btn grn" onClick={() => setResult("green")}>
+           {!processing && <button className="btn grn" onClick={() => setResult("4")}>
+              Set
+            </button>}
+          </div>
+        </div>
+        <div className="inst-on">
+          <div className="stk">
+            5 :
+          </div>
+          <div className="blnc">{getData("5")}</div>
+          <div className="actn">
+           {!processing && <button className="btn grn" onClick={() => setResult("5")}>
+              Set
+            </button>}
+          </div>
+        </div>
+        <div className="inst-on">
+          <div className="stk">
+            6 :
+          </div>
+          <div className="blnc">{getData("6")}</div>
+          <div className="actn">
+           {!processing && <button className="btn grn" onClick={() => setResult("6")}>
               Set
             </button>}
           </div>
@@ -145,16 +164,16 @@ const ColorTrade = ({
   );
 };
 
-ColorTrade.propTypes = {
+FlightTrade.propTypes = {
   auth: PropTypes.object.isRequired,
-  colorTrade: PropTypes.object.isRequired,
+  flightTrade: PropTypes.object.isRequired,
   getLatstTrade: PropTypes.func.isRequired,
   getLatestTradingData: PropTypes.func.isRequired,
   setTradeResult: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
-  colorTrade: state.colorTrade,
+  flightTrade: state.flightTrade,
   auth: state.auth,
 });
 
@@ -162,4 +181,4 @@ export default connect(mapStateToProps, {
   getLatstTrade,
   getLatestTradingData,
   setTradeResult,
-})(ColorTrade);
+})(FlightTrade);

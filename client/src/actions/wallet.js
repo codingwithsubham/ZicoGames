@@ -13,7 +13,7 @@ export const topUpRequest = (body) => async (dispatch) => {
     }
 };
 
-//submit top-up-request
+//get wallet by user
 export const getWallet = () => async (dispatch) => {
     try {
         const res = await axios.get("/api/wallet", API_CONFIG);
@@ -23,5 +23,15 @@ export const getWallet = () => async (dispatch) => {
         });
     } catch (error) {
         dispatch(setAlert(error?.response?.data?.error, "danger"));
+    }
+};
+
+//get tot-wlt-dta
+export const getWltTot = () => async (dispatch) => {
+    try {
+        const res = await axios.get("/api/wallet/tot-wlt-blnc", API_CONFIG);
+        return res.data;
+    } catch (error) {
+        dispatch("Can't Fetch Wlt Tot", "danger");
     }
 };

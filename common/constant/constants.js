@@ -45,6 +45,7 @@ module.exports = {
   APPROVED: "Approved",
   REJECTED: "Rejected",
   TRANSFERED: "Transfered",
+  RUNNUNG: "Running",
   //constant
   FIVE_M: "5m",
   COLOR: "color",

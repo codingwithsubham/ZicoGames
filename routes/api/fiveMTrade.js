@@ -4,6 +4,7 @@ const auth = require("../../middleware/auth");
 const {
   SERVER_ERROR,
   STATUS_CODE_500,
+  RUNNUNG,
 } = require("../../common/constant/constants");
 const FiveMTrade = require("../../models/FiveMTrade");
 
@@ -26,10 +27,32 @@ router.get("/get-latest", auth, async (req, res) => {
 router.get("/get-records", auth, async (req, res) => {
   try {
     const trades = await FiveMTrade.find();
-    return res.json(trades.reverse());
+    return res.json(trades.reverse().slice(1));
   } catch (err) {
     console.log(err);
     res.status(STATUS_CODE_500).send(SERVER_ERROR);
+  }
+});
+
+// @route GET api/color-trade  
+// @desc Get all trade records
+// @access Private
+router.post("/set-res", auth, async (req, res) => {
+  const { id, result} = req.body;
+  if(req.user.userData?.role === 'admin'){
+    try {
+      const trade = await FiveMTrade.findOneAndUpdate(
+        { _id: id },
+        { $set: { result:  result } }
+  
+      );
+      return res.json(trade);
+    } catch (err) {
+      console.log(err);
+      res.status(STATUS_CODE_500).send(SERVER_ERROR);
+    }
+  } else {
+    res.status(STATUS_CODE_400).send(BAD_REQUEST);
   }
 });
 

@@ -41,7 +41,7 @@ const FiveMStockResult = ({ tradingClose, timerVal, fiveMTrade: { allTrdData }, 
                 </div> : <div className='rslt-show'>
                     <h1>Last Winning Stock</h1>
                     <div className='nmbr'>
-                        {allTrdData[1]?.result}
+                        {allTrdData[0]?.result}
                     </div>
                     <p>It's the last winning stock number.</p>
                 </div>

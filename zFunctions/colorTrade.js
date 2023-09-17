@@ -1,4 +1,4 @@
-const { LOWER } = require("../common/constant/constants");
+const { LOWER, RUNNUNG } = require("../common/constant/constants");
 const { colorTradeDefault } = require("../common/constant/defaultData");
 const ColorTrade = require("../models/ColorTrade");
 const UserTradeData = require("../models/UserTradeData");
@@ -34,10 +34,12 @@ const createNewTrade = async (trads) => {
 
 const setResult = async (trdData) => {
     let data = trdData;
-    if (data.returnLogic === LOWER) {
-        const lowerTrade = getLower(trdData);
-        data.result = lowerTrade;
-        await data.save();
+    if(data?.result === RUNNUNG){
+        if (data.returnLogic === LOWER) {
+            const lowerTrade = getLower(trdData);
+            data.result = lowerTrade;
+            await data.save();
+        }
     }
 }
 

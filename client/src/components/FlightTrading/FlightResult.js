@@ -44,7 +44,7 @@ const FlightResult = ({ tradingClose, timerVal, flightTrade: { allTrdData }, get
           <div className='roller-anim'>
             <img src={require("../../static/flight_1.jpg")} alt="" />
             <div className='nmbr'>
-              {allTrdData[1]?.result}
+              {allTrdData[0]?.result}
             </div>
           </div>
           <p>It's the last winning stock number.</p>
