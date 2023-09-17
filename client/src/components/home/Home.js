@@ -50,8 +50,8 @@ const Home = ({ auth: { user, allTimeTrade }, selfRegistration, getAllTradingDat
   ) : (
     <div className="hme-wrap insta-an">
       <RefferalBoard />
-      <UptimeCounter />
       {!display ? <ProductList /> : <QuickAccess />}
+      <UptimeCounter />
       {display && <TotalWalletTops />}
       <LiveTradeRecords data={allTimeTrade} />
     </div>
