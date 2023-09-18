@@ -17,6 +17,7 @@ import Register from "./components/auth/Register";
 import privacyPolicy from "./components/pages/privacyPolicy";
 import Terms from "./components/pages/Terms";
 import Aboutus from "./components/pages/Aboutus";
+import { touchPlay } from "./common/functions";
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);
@@ -45,7 +46,7 @@ const App = () => {
   return (
     <Provider store={store}>
       <Router>
-        <Fragment>
+        <div onClick={() => touchPlay()}>
           {width <= 768 ? (
             <Fragment>
               <Navbar />
@@ -81,7 +82,7 @@ const App = () => {
               </div>
             </div>
           )}
-        </Fragment>
+        </div>
       </Router>
     </Provider>
   );

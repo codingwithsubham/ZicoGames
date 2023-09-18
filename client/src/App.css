@@ -927,10 +927,10 @@ a.go-back {
 /* The device with borders */
 .smartphone {
   position: relative;
-  width: 393px;
-  height: 851px;
+  width: 33.33vw;
+  height: 100vh;
   margin: 1px 10px;
-  border: 16px black solid;
+  border: 16px #fff solid;
   border-top-width: 60px;
   border-bottom-width: 60px;
   border-radius: 36px;
@@ -967,29 +967,28 @@ a.go-back {
 
 /* The screen (or content) of the device */
 .smartphone .content {
-  width: 393px;
-  height: 851px;
-  background: white;
+  width: 33.33vw;
+  height: 100vh;
+  background: #111;
 }
 
 .scrn-wrapper {
   transform-origin: 0 0;
-  transform: scale(0.58);
-  margin-top: 10px;
-  margin-left: 38%;
+  transform: scale(0.8);
+  margin-top: 20px;
+  margin-left: 33.33vw;
 }
 
 .entire-Wrap {
-  width: 100vw;
+  width: 100%;
   height: 100vw;
   position: fixed;
   top: 0;
   left: 0;
-  background-image: url("./static/dtBg.jpg");
-  background-position: top left;
+  background-image: url("./static/lbg.jpg");
+  background-position: center center;
   background-repeat: no-repeat;
-  background-size: contain;
-  background-color: #1b0d24;
+  background-size: cover;
 }
 
 .pg-styl {

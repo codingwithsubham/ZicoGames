@@ -14,7 +14,7 @@ const TotalWalletTops = ({ getWltTot }) => {
       <div className="card-bl">
         <h1>Today Wallet Tops</h1>
         <div className="icn-bx">
-          <i class="fa fa-star" aria-hidden="true"></i>
+          <i className="fa fa-star" aria-hidden="true"></i>
           <p>{totBlnc + 9530}+</p>
         </div>
       </div>

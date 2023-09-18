@@ -8,15 +8,15 @@ const QuickAccess = () => {
                 <h1>Quick Access</h1>
                 <div className='icn-lst'>
                     <Link to="/profile" className='icn-itm'>
-                        <i class="fa fa-bank" />
+                        <i className="fa fa-bank" />
                         <p>Update Bank</p>
                     </Link>
                     <Link to="/wallet" className='icn-itm'>
-                        <i class="fa fa-money" />
+                        <i className="fa fa-money" />
                         <p>Top-up Money</p>
                     </Link>
                     <Link to="/withdrawl" className='icn-itm'>
-                        <i class="fa fa-exchange" />
+                        <i className="fa fa-exchange" />
                         <p>Withdraw</p>
                     </Link>
                 </div>
