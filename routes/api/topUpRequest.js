@@ -98,7 +98,7 @@ const disburshWalletCredit = async (blnc, id) => {
     for (element of perct) {
       const amnt = (parseInt(blnc) * element) / 100;
       if(user?.upline){
-        await creditToWallet(parseInt(amnt), "Top-Up Added", user?.upline);
+        await creditToWallet(parseInt(amnt), "Refferal Bonus", user?.upline);
         user = await User.findOne({ _id: user?.upline }).populate("upline");
       } else {
         user = null;
