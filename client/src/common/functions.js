@@ -35,7 +35,3 @@ export const showulDisplay = () => {
         }
     };
 }
-
-export const touchPlay = () => {
-    new Audio(require("../audio/touch.mp3")).play();
-}

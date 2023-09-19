@@ -28,7 +28,7 @@ const FlightResult = ({ tradingClose, timerVal, flightTrade: { allTrdData }, get
         <div className='nmbr-flpr'>
           <h1>Stock Rolling Onn</h1>
           <div className='roller-anim'>
-            <img src={require("../../static/flight.gif")} alt="" />
+            <img src={require("../../static/flight.gif")} alt="" className='moving-right'/>
             <div className='flpr'>
               {ranNum}
             </div>
