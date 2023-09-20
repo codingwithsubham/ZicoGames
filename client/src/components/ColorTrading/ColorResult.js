@@ -18,12 +18,12 @@ const ColorResult = ({
   const [isApiCalled, setApiCalled] = useState(false);
   
   if (timerVal === 2 && !isApiCalled) {
-    getTradeRecords();
     setApiCalled(true);
+    getTradeRecords().then();
   }
 
   if(timerVal > 10 && isApiCalled) {
-    setApiCalled(true);
+    setApiCalled(false);
   }  
   
   return (

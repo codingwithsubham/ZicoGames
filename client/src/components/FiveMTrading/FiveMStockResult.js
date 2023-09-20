@@ -19,7 +19,7 @@ const FiveMStockResult = ({ tradingClose, timerVal, fiveMTrade: { allTrdData }, 
     }
   
     if(timerVal > 10 && isApiCalled) {
-      setApiCalled(true);
+      setApiCalled(false);
     }  
 
     return (

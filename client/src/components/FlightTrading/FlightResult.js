@@ -19,7 +19,7 @@ const FlightResult = ({ tradingClose, timerVal, flightTrade: { allTrdData }, get
   }
 
   if(timerVal > 10 && isApiCalled) {
-    setApiCalled(true);
+    setApiCalled(false);
   }
 
   return (

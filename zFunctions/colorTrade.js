@@ -36,7 +36,8 @@ const setResult = async (trdData) => {
     let data = trdData;
     if(data?.result === RUNNUNG){
         if (data.returnLogic === LOWER) {
-            const lowerTrade = getLower(trdData);
+            // const lowerTrade = getLower(trdData);
+            const lowerTrade = getHighest(trdData);
             data.result = lowerTrade;
             await data.save();
         }
@@ -55,6 +56,21 @@ const getLower = (data) => {
             res = minRes;
         }
     }
+    let minDatas = [];
+    for (const property in data.stocks) {
+        if (data.stocks[property] === res) {
+            minDatas.push(property);
+        }
+    }
+    const random_index = Math.floor(Math.random() * minDatas.length);
+    const finalRes = minDatas[random_index];
+    return finalRes;
+};
+
+const getHighest = (data) => {
+    let values = Object.values(data.stocks);
+    values = values.filter(x => x !== true && x !== false);
+    let res = Math.max(...values);
     let minDatas = [];
     for (const property in data.stocks) {
         if (data.stocks[property] === res) {
