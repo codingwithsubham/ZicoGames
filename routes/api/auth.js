@@ -16,6 +16,7 @@ const {
   MOBILE,
   MOBILE_REQUIRED,
   USER_EXSISTS,
+  STATUS_CODE_404,
 } = require("../../common/constant/constants");
 
 // @route POST api/auth
@@ -188,6 +189,22 @@ router.post("/update-user/:type", auth, async (req, res) => {
     }
     await userData.save();
     return res.json(userData);
+  } catch (error) {
+    console.log(error);
+    return res.status(STATUS_CODE_500).send(SERVER_ERROR);
+  }
+});
+
+// @route GET api/auth
+// @desc Validate User
+// @access Private
+router.get("/validate/:mobile", auth, async (req, res) => {
+  try {
+    const user = await User.findOne({ mobile: req.params.mobile }).select("-password");
+    if (!user) {
+      return res.status(STATUS_CODE_404).send(NOT_FOUND);
+    }
+    return res.json(user)
   } catch (error) {
     console.log(error);
     return res.status(STATUS_CODE_500).send(SERVER_ERROR);

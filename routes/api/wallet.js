@@ -3,6 +3,8 @@ const router = express.Router();
 const {
     STATUS_CODE_500,
     SERVER_ERROR,
+    STATUS_CODE_400,
+    SUCCESS,
 } = require("../../common/constant/constants");
 const Wallet = require("../../models/Wallet");
 const auth = require("../../middleware/auth");
@@ -69,5 +71,33 @@ router.get("/tot-wlt-blnc", auth, async (req, res) => {
         res.status(STATUS_CODE_500).send(SERVER_ERROR);
     }
 });
+
+// @route POST api/wallet
+// @desc DEBIT FROM WALLET
+// @access Private
+router.post("/transfer", auth, async (req, res) => {
+    const {amnt, user} = req.body;
+    try {
+        let wallet = await Wallet.findOne({ user: req.user.id });
+        if(!wallet){
+          return res.status(STATUS_CODE_400).send(BAD_REQUEST);
+        }
+        if(wallet?.blnc <= 0){
+          return res.status(STATUS_CODE_400).send(BAD_REQUEST);
+        }
+        if(parseFloat(amnt) > parseFloat(wallet?.blnc)){
+          return res.status(STATUS_CODE_400).send(BAD_REQUEST);
+        }
+        await debitToWallet(amnt, `Transfer to ${user?.mobile}`, req.user.id);
+        //5% deductions as admin charge // disabled due to payment gateway issue
+        //amntToAdd = (parseFloat(amnt) - ((parseFloat(amnt) * 5) / 100));  
+        //transfer to
+        await creditToWallet(amnt, `Transfered by ${req.user?.userData?.mobile}`, user?._id);
+      return res.json({ msg: SUCCESS });
+    } catch (err) {
+      console.log(err);
+      return res.status(STATUS_CODE_500).send(SERVER_ERROR);
+    }
+  });
 
 module.exports = router;

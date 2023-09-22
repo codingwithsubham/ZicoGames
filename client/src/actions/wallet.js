@@ -35,3 +35,14 @@ export const getWltTot = () => async (dispatch) => {
         dispatch("Can't Fetch Wlt Tot", "danger");
     }
 };
+
+//transfer
+export const transferWalletBalance = (amnt, user) => async (dispatch) => {
+    try {
+      await axios.post("/api/wallet/transfer",{ amnt, user }, API_CONFIG);
+      dispatch(getWallet());
+      dispatch(setAlert(`Balance Transfered to ${user?.name}`, "success"));
+    } catch (err) {
+      dispatch(setAlert("Can not Debit from Wallet", "danger"));
+    }
+  };
