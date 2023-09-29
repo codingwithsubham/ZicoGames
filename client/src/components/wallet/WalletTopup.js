@@ -4,7 +4,7 @@ import PaymentGateway from "../paymentGateway/PaymentGateway";
 
 const WalletTopup = () => {
   const amnts = [
-    1, 300, 500, 1000, 1500, 2000, 2500, 5000, 7500, 10000, 15000, 20000,
+    300, 500, 1000, 1500, 2000, 2500, 5000, 7500, 10000, 15000, 20000,
   ];
   const [selected, setSelected] = useState(null);
   const [openPG, setOpenPG] = useState(false);

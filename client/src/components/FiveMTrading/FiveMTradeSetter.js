@@ -49,10 +49,10 @@ const FiveMTradeSetter = ({
             <h3>Investment Amount: </h3>
             <div className="invst-opts">
               <p
-                className={amnt === 1 ? "active" : ""}
-                onClick={() => setAmnt(1)}
+                className={amnt === 5 ? "active" : ""}
+                onClick={() => setAmnt(5)}
               >
-                1
+                5
               </p>
               <p
                 className={amnt === 10 ? "active" : ""}
