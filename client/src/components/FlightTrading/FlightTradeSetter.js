@@ -13,7 +13,7 @@ const FlightTradeSetter = ({
   wlt,
   flightTrade: { trdData },
 }) => {
-  const [amnt, setAmnt] = useState(1);
+  const [amnt, setAmnt] = useState(5);
   const [mltply, setMltply] = useState(1);
 
   const handleSubmit = () => {
