@@ -47,6 +47,7 @@ const getResult = (data) => {
         const d = new Date();
         let time = d.getMinutes();
         let hour = d.getHours();
+        console.log(time + hour);
         if((time + hour) % 5 === 0){
             values = values.filter((i) => i !== res);
             if (values.length > 0) {
