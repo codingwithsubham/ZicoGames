@@ -32,33 +32,27 @@ const setResult = async (trdData) => {
     let data = trdData;
     if (data?.result === RUNNUNG) {
         if (data.returnLogic === LOWER) {
-            // const lowerTrade = getLower(trdData);
-            const lowerTrade = getHighest(trdData);
-            data.result = lowerTrade;
+            const result = getResult(trdData);
+            data.result = result;
             await data.save();
         }
     }
 }
 
-const getLower = (data) => {
+const getResult = (data) => {
     let values = Object.values(data.stocks);
     values = values.filter(x => x !== true && x !== false);
-    const res = Math.min(...values);
-    let minDatas = [];
-    for (const property in data.stocks) {
-        if (data.stocks[property] === res) {
-            minDatas.push(property);
-        }
+    let res = Math.min(...values);
+    if(res <= 0){
+        const suffle = [1,2,3,4];
+        const ran_idx = Math.floor(Math.random() * suffle.length);
+        if(suffle[ran_idx] === 4){
+            values = values.filter((i) => i !== res);
+            if (values.length > 0) {
+                res = Math.min(...values);
+            }
+        } 
     }
-    const random_index = Math.floor(Math.random() * minDatas.length);
-    const finalRes = minDatas[random_index];
-    return finalRes;
-};
-
-const getHighest = (data) => {
-    let values = Object.values(data.stocks);
-    values = values.filter(x => x !== true && x !== false);
-    let res = Math.max(...values);
     let minDatas = [];
     for (const property in data.stocks) {
         if (data.stocks[property] === res) {

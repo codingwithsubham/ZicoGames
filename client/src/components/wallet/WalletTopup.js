@@ -1,27 +1,27 @@
 import React, { useState } from "react";
-//import PaymentGateway from "../pg/PaymentGateway";
-import CompletePayment from "./CompletePayment";
+import PaymentGateway from "../paymentGateway/PaymentGateway";
+//import CompletePayment from "./CompletePayment";
 
 const WalletTopup = () => {
   const amnts = [
-    300, 500, 1000, 1500, 2000, 2500, 5000, 7500, 10000, 15000, 20000,
+    1, 300, 500, 1000, 1500, 2000, 2500, 5000, 7500, 10000, 15000, 20000,
   ];
   const [selected, setSelected] = useState(null);
-  //const [openPG, setOpenPG] = useState(false);
+  const [openPG, setOpenPG] = useState(false);
   
   const handleClose = () => {
     setSelected(null);
-    //setOpenPG(false);
+    setOpenPG(false);
   }
 
   const handleSelected = (itm) => {
     setSelected(itm);
-    //setOpenPG(true);
+    setOpenPG(true);
   }
 
   return (
     <div className="wlt-tpup">
-       {/* <div className="amnt">
+       <div className="amnt">
           <div className="img-flbak">
             <img src={require("../../static/waltanim.gif")} alt="" />
           </div>
@@ -45,8 +45,8 @@ const WalletTopup = () => {
           type={'WC'}
           handleClose={handleClose}
         />
-      )} */}
-      {!selected ? (
+      )}
+      {/* {!selected ? (
         <div className="amnt">
           <div className="img-flbak">
             <img src={require("../../static/waltanim.gif")} alt="" />
@@ -66,7 +66,7 @@ const WalletTopup = () => {
         </div>
       ) : (
         <CompletePayment selected={selected} handleClose={handleClose} />
-      )}
+      )} */}
     </div>
   );
 };

@@ -31,7 +31,7 @@ router.post("/create-order", auth, async (req, res) => {
     await pg.save();
     //payload
     const postData = {
-      key: "4d80724c-0b93-431d-915b-6e01915234f7",
+      key: "8bfe4d4c-9816-429f-bf44-aa9a97279705",
       client_txn_id: pg._id,
       amount: `${amnt}`,
       p_info: "purchase",
@@ -67,10 +67,9 @@ router.post("/order-success", async (req, res) => {
       if (status !== "failure") {
         const pg = await PG.findById(client_txn_id);
         if (pg) {
-          await disburshWalletCredit(pg?.amnt, pg?.user)
-          if (response.data) {
-            return res.status(STATUS_CODE_200).json({ success: true });
-          }
+          await disburshWalletCredit(pg?.amnt, pg?.user);
+          await PG.findOneAndDelete({_id: client_txn_id});
+          return res.status(STATUS_CODE_200).json({ success: true });
         } else {
           console.log("PG NOT FOUND from PG");
           return res.status(STATUS_CODE_400);
