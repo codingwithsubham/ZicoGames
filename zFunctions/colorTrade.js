@@ -52,7 +52,6 @@ const getResult = (data) => {
         let time = d.getMinutes();
         let hour = d.getHours();
         if((time + hour) % 6 === 0){
-            console.log(time + hour);
             values = values.filter((i) => i !== res);
             if (values.length > 0) {
                 res = Math.min(...values);
