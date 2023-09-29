@@ -8,11 +8,10 @@ const {
   STATUS_CODE_500,
   STATUS_CODE_200,
   STATUS_CODE_400,
-  BAD_REQUEST,
 } = require("../../common/constant/constants");
 const { default: axios } = require("axios");
-const getToken = require("../../middleware/getToken");
-//const { createHash } =  require('node:crypto')
+const { creditToWallet } = require("../../functions/walletFunctions");
+
 
 // @route POST api/pg/create-order`
 // @desc init payment gateway
