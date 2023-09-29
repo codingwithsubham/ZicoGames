@@ -22,6 +22,7 @@ import ResetPassword from "../components/auth/ResetPassword";
 import { showulDisplay } from "../common/functions";
 import Profile from "../components/profile/Profile";
 import AdminRoute from "./AdminRoute";
+import Users from "../components/admin/Users";
 
 const Routes = ({ layout: { isSidebarOpen }}) => {
   const display = showulDisplay();
@@ -42,6 +43,7 @@ const Routes = ({ layout: { isSidebarOpen }}) => {
         <PrivateRoute exact path="/wallet" component={Wallet} />
         <PrivateRoute exact path="/profile" component={Profile} />
         <AdminRoute exact path="/trd-live" component={TradeRecord} />
+        <AdminRoute exact path="/users" component={Users} />
         <AdminRoute exact path="/tp-up-aprv" component={ApproveTopupRequest} />
         <AdminRoute exact path="/wth-dwl-aprv" component={ApproveWithdrawlRequest} />
         {

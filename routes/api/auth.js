@@ -211,4 +211,26 @@ router.get("/validate/:mobile", auth, async (req, res) => {
   }
 });
 
+// @route GET api/auth
+// @desc Validate User
+// @access Private
+router.get("/users-lookup", auth, async (req, res) => {
+  try {
+    const users = await User.aggregate([
+      {
+        $lookup: {
+          from: "wallets",
+          localField: "_id",
+          foreignField: "user",
+          as: "wallet"
+        }
+      }
+    ])
+    return res.json(users);
+  } catch (error) {
+    console.log(error);
+    return res.status(STATUS_CODE_500).send(SERVER_ERROR);
+  }
+});
+
 module.exports = router;

@@ -54,21 +54,6 @@ const Sidebar = ({
               <NavLink exact to="/home" onClick={() => closeSidebar()}>
                 Home
               </NavLink>
-              <NavLink exact to="/wallet" onClick={() => closeSidebar()}>
-                Wallet
-              </NavLink>
-              {display && <NavLink exact to="/withdrawl" onClick={() => closeSidebar()}>
-                Withdrawl
-              </NavLink>}
-              <NavLink exact to="/privacy" onClick={() => closeSidebar()}>
-                Privacy Policy
-              </NavLink>
-              <NavLink exact to="/terms" onClick={() => closeSidebar()}>
-                Terms of Use
-              </NavLink>
-              <NavLink exact to="/about" onClick={() => closeSidebar()}>
-                About Us
-              </NavLink>
               {user?.role === "admin" && display && (
               <Fragment>
                 <NavLink
@@ -86,10 +71,28 @@ const Sidebar = ({
                   Approve Withdrawls
                 </NavLink>
                 <NavLink exact to="/trd-live" onClick={() => closeSidebar()}>
-                  Trade Live
+                  Live Game
+                </NavLink>
+                <NavLink exact to="/users" onClick={() => closeSidebar()}>
+                  Users Details
                 </NavLink>
               </Fragment>
             )}
+              <NavLink exact to="/wallet" onClick={() => closeSidebar()}>
+                Wallet
+              </NavLink>
+              {display && <NavLink exact to="/withdrawl" onClick={() => closeSidebar()}>
+                Withdrawl
+              </NavLink>}
+              <NavLink exact to="/privacy" onClick={() => closeSidebar()}>
+                Privacy Policy
+              </NavLink>
+              <NavLink exact to="/terms" onClick={() => closeSidebar()}>
+                Terms of Use
+              </NavLink>
+              <NavLink exact to="/about" onClick={() => closeSidebar()}>
+                About Us
+              </NavLink>
             </Fragment>
           </div>
         </div>

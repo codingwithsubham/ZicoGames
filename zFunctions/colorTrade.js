@@ -48,7 +48,7 @@ const getResult = (data) => {
     values = values.filter(x => x !== true && x !== false);
     let res = Math.min(...values);
     if(res <= 0){
-        const suffle = [1,2,3];
+        const suffle = [1,2,3,4,5,6];
         const ran_idx = Math.floor(Math.random() * suffle.length);
         if(suffle[ran_idx] === 3){
             values = values.filter((i) => i !== res);
