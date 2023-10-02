@@ -23,11 +23,16 @@ import { showulDisplay } from "../common/functions";
 import Profile from "../components/profile/Profile";
 import AdminRoute from "./AdminRoute";
 import Users from "../components/admin/Users";
-import socketIO from 'socket.io-client';
+import { io } from "socket.io-client";
 import WorldCupGames from "../components/WCTrading/WorldCupGames";
 
 const Routes = ({ layout: { isSidebarOpen }}) => {
-  const socket = socketIO.connect('http://localhost:8081');
+  const socket = io(['https://zicogames.onrender.com/', 'http://localhost:8081'], {
+  withCredentials: true,
+  extraHeaders: {
+    "my-custom-header": "abcd"
+  }
+});
   const display = showulDisplay();
   return (
     <div
