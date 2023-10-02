@@ -23,8 +23,11 @@ import { showulDisplay } from "../common/functions";
 import Profile from "../components/profile/Profile";
 import AdminRoute from "./AdminRoute";
 import Users from "../components/admin/Users";
+import socketIO from 'socket.io-client';
+import WorldCupGames from "../components/WCTrading/WorldCupGames";
 
 const Routes = ({ layout: { isSidebarOpen }}) => {
+  const socket = socketIO.connect('http://localhost:8081');
   const display = showulDisplay();
   return (
     <div
@@ -42,6 +45,7 @@ const Routes = ({ layout: { isSidebarOpen }}) => {
         <PrivateRoute exact path="/flight-trading" component={FlightTrading} />
         <PrivateRoute exact path="/wallet" component={Wallet} />
         <PrivateRoute exact path="/profile" component={Profile} />
+        <PrivateRoute exact path="/world-cup-game" component={WorldCupGames} socket={socket} />
         <AdminRoute exact path="/trd-live" component={TradeRecord} />
         <AdminRoute exact path="/users" component={Users} />
         <AdminRoute exact path="/tp-up-aprv" component={ApproveTopupRequest} />

@@ -6,6 +6,7 @@ import LoadingPage from "../components/layout/LoadingPage"
 
 const PrivateRoute = ({
   component: Component,
+  socket,
   auth: { isAuthenticated, loading },
   ...rest
 }) => (
@@ -17,7 +18,7 @@ const PrivateRoute = ({
       ) : localStorage.token && loading ? (
         <LoadingPage />
       ) : (
-        <Component {...props} />
+        <Component {...props} socket={socket}/>
       )
     }
   />

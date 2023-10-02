@@ -5,8 +5,14 @@ const app = express();
 const fiveMTradeCron = require('./scheduledFunctions/fiveMTradeCron');
 const colorTradeCron = require('./scheduledFunctions/colorTradeCron');
 const flightTradeCron = require('./scheduledFunctions/flightTradeCron');
+const Socket = require('./zSockets/Socket');
 const bodyParser = require('body-parser');
-
+//Socket.io
+const http = require('http').Server(app);
+const cors = require('cors');
+app.use(cors());
+//calling socket
+Socket.init(http);
 // Connect Database
 connectDB();
 //Cron Jobs
@@ -39,4 +45,4 @@ app.get("*", (req, res) => {
 // Define Port
 const PORT = process.env.PORT || 8081;
 // Server Start
-app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+http.listen(PORT, () => console.log(`Server started on port ${PORT}`));
