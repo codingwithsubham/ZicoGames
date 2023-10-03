@@ -34,7 +34,7 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  background-image: url("./static/cnf.jpg");
+  background-image: url('./static/cnf.jpg');
   background-position: bottom;
   background-size: contain;
   background-repeat: no-repeat;
@@ -831,7 +831,7 @@ table.trd-rcrds-table {
   justify-content: center;
   align-items: center;
   text-align: center;
-  background-image: url("./static/lbg.jpg");
+  background-image: url('./static/lbg.jpg');
   position: fixed;
   top: 0px;
   height: 98vh;
@@ -857,8 +857,8 @@ table.trd-rcrds-table {
   margin-top: 0px;
 }
 
-.btn.rd {
-  background-color: #f44336;
+.rd {
+  background-color: #f44336 !important;
 }
 
 .clr-trd {
@@ -939,7 +939,7 @@ a.go-back {
 
 /* The horizontal line on the top of the device */
 .smartphone:before {
-  content: "";
+  content: '';
   display: block;
   width: 60px;
   height: 5px;
@@ -953,7 +953,7 @@ a.go-back {
 
 /* The circle on the bottom of the device */
 .smartphone:after {
-  content: "";
+  content: '';
   display: block;
   width: 35px;
   height: 35px;
@@ -985,7 +985,7 @@ a.go-back {
   position: fixed;
   top: 0;
   left: 0;
-  background-image: url("./static/lbg.jpg");
+  background-image: url('./static/lbg.jpg');
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -1216,6 +1216,185 @@ p.info-app {
   padding: 10px;
   font-size: 20px;
   border-radius: 10px;
+}
+
+.wc-admin-dash-wrap {
+  padding: 10px;
+}
+
+.wc-rerd {
+  overflow-x: scroll;
+}
+
+.scrn-svr {
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 10px 0px;
+  overflow: hidden;
+  border-radius: 10px;
+  background-color: #1f1f1f;
+}
+
+.scrn-svr img {
+  width: 100%;
+  min-height: 60vh;
+  object-fit: cover;
+  object-position: center;
+  margin-bottom: 10px;
+}
+
+.scrn-svr h3 {
+  height: 8vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #d9ceed;
+}
+
+.game-wrap {
+  padding: 10px;
+}
+
+.game-cntrls {
+  display: flex;
+  width: -webkit-fill-available;
+  justify-content: space-between;
+  margin: 10px 0px;
+  background: #1e1e1e;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 11px;
+  align-items: center;
+}
+
+.ovr-unit {
+  padding: 10px;
+  background: #1e1e1e;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 15px;
+}
+
+.ovr-unit h3 {
+  font-weight: 400;
+  color: rgb(76, 175, 80);
+}
+
+.ovr-unit h3 b {
+  color: #fff;
+  margin-left: 10px;
+  font-size: 24px;
+  font-weight: 300;
+}
+
+.runs {
+  padding: 10px;
+  background: #1e1e1e;
+  border-radius: 10px;
+  margin: 10px 0px;
+}
+
+.runs h1 {
+  font-size: 25px;
+  text-align: center;
+}
+
+.runs p {
+  text-align: center;
+  font-size: 14px;
+}
+
+.runs .res-grp {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: -webkit-fill-available;
+  margin: 10px 0px;
+}
+
+.runs .res-grp .res-itm {
+  width: 45%;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+}
+
+.lck-bt {
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+.user-brd img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.game-wrap h1,
+p {
+  text-align: center;
+}
+
+.wc-games {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin: 10px 0px;
+}
+
+.wc-games .runs {
+  width: 40%;
+  margin: 5px !important;
+}
+
+.game-done {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.game-done img {
+  width: 100%;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.game-done h3 {
+  font-size: 30px;
+  font-weight: 300;
+  margin-bottom: 20px;
+}
+
+a.wcc-cvr {
+  width: 100%;
+  text-decoration: none;
+  color: #111;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+a.wcc-cvr img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+a.wcc-cvr p {
+  text-decoration: none !important;
+  font-size: 30px;
+  position: absolute;
+  margin-top: 130px;
+  margin-left: -140px;
+  color: #000;
+  text-shadow: 0px 0px 6px #4caf50;
+  font-weight: 900;
 }
 
 @media only screen and (max-width: 600px) {

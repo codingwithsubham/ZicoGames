@@ -8,6 +8,7 @@ import wallet from "./wallet";
 import colorTrade from "./colorTrade"
 import withdrwlReq from "./withdrwlReq"
 import flightTrade from "./flightTrade"
+import wcGames from "./wcGames"
 
 export default combineReducers({
   alert,
@@ -18,5 +19,6 @@ export default combineReducers({
   layout,
   flightTrade,
   withdrwlReq,
-  colorTrade
+  colorTrade,
+  wcGames
 });

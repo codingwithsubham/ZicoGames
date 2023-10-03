@@ -1,9 +1,9 @@
-import React, { useState, useLayoutEffect, Fragment } from "react";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
-import { NavLink } from "react-router-dom";
-import { closeSidebar, openSidebar } from "../../actions/layout";
-import { showulDisplay } from "../../common/functions";
+import React, { useState, useLayoutEffect, Fragment } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { NavLink } from 'react-router-dom';
+import { closeSidebar, openSidebar } from '../../actions/layout';
+import { showulDisplay } from '../../common/functions';
 
 function useWindowSize() {
   const [size, setSize] = useState([0, 0]);
@@ -11,9 +11,9 @@ function useWindowSize() {
     function updateSize() {
       setSize([window.innerWidth, window.innerHeight]);
     }
-    window.addEventListener("resize", updateSize);
+    window.addEventListener('resize', updateSize);
     updateSize();
-    return () => window.removeEventListener("resize", updateSize);
+    return () => window.removeEventListener('resize', updateSize);
   }, []);
   return size;
 }
@@ -33,11 +33,13 @@ const Sidebar = ({
         className="sidebar"
         style={
           isSidebarOpen
-            ? { width: width <= 600 ? "60%" : "20%" }
-            : { width: "0%" }
+            ? { width: width <= 600 ? '60%' : '20%' }
+            : { width: '0%' }
         }
       >
-        {isSidebarOpen && <div className="sidebar-bg" onClick={() => closeSidebar()} />}
+        {isSidebarOpen && (
+          <div className="sidebar-bg" onClick={() => closeSidebar()} />
+        )}
         <div className="sidebar-content">
           {width <= 600 && (
             <button className="sidebar-closebtn" onClick={() => closeSidebar()}>
@@ -54,36 +56,41 @@ const Sidebar = ({
               <NavLink exact to="/home" onClick={() => closeSidebar()}>
                 Home
               </NavLink>
-              {user?.role === "admin" && display && (
-              <Fragment>
-                <NavLink
-                  exact
-                  to="/tp-up-aprv"
-                  onClick={() => closeSidebar()}
-                >
-                  Approve Topup
-                </NavLink>
-                <NavLink
-                  exact
-                  to="/wth-dwl-aprv"
-                  onClick={() => closeSidebar()}
-                >
-                  Approve Withdrawls
-                </NavLink>
-                <NavLink exact to="/trd-live" onClick={() => closeSidebar()}>
-                  Live Game
-                </NavLink>
-                <NavLink exact to="/users" onClick={() => closeSidebar()}>
-                  Users Details
-                </NavLink>
-              </Fragment>
-            )}
+              {user?.role === 'admin' && (
+                <Fragment>
+                  <NavLink
+                    exact
+                    to="/tp-up-aprv"
+                    onClick={() => closeSidebar()}
+                  >
+                    Approve Topup
+                  </NavLink>
+                  <NavLink
+                    exact
+                    to="/wth-dwl-aprv"
+                    onClick={() => closeSidebar()}
+                  >
+                    Approve Withdrawls
+                  </NavLink>
+                  <NavLink exact to="/trd-live" onClick={() => closeSidebar()}>
+                    Live Game
+                  </NavLink>
+                  <NavLink exact to="/wc-admin" onClick={() => closeSidebar()}>
+                    World Cup
+                  </NavLink>
+                  <NavLink exact to="/users" onClick={() => closeSidebar()}>
+                    Users Details
+                  </NavLink>
+                </Fragment>
+              )}
               <NavLink exact to="/wallet" onClick={() => closeSidebar()}>
                 Wallet
               </NavLink>
-              {display && <NavLink exact to="/withdrawl" onClick={() => closeSidebar()}>
-                Withdrawl
-              </NavLink>}
+              {display && (
+                <NavLink exact to="/withdrawl" onClick={() => closeSidebar()}>
+                  Withdrawl
+                </NavLink>
+              )}
               <NavLink exact to="/privacy" onClick={() => closeSidebar()}>
                 Privacy Policy
               </NavLink>

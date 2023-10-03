@@ -40,4 +40,23 @@ module.exports = {
             6: 0,
         }
     },
+    wcDefaultData: {
+        over: 0,
+        evenOdd: {
+            isRunning: true,
+            result: RUNNUNG
+        },
+        wicketorNo: {
+            isRunning: true,
+            result: RUNNUNG
+        },
+        fourRuns: {
+            isRunning: true,
+            result: RUNNUNG
+        },
+        sixRuns: {
+            isRunning: true,
+            result: RUNNUNG
+        },
+    }
 }

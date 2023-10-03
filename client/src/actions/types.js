@@ -58,3 +58,5 @@ export const GET_LATST_CLR_TRD = "GET_LATST_CLR_TRD";
 export const GET_CLR_TRD_RCRD = "GET_CLR_TRD_RCRD";
 export const GET_LATST_FLT_TRD = "GET_LATST_FLT_TRD";
 export const GET_CLR_FLT_RCRD = "GET_CLR_FLT_RCRD";
+export const GET_WC_GAMES = "GET_WC_GAMES";
+export const CREATE_WC_GAMES = "CREATE_WC_GAMES";

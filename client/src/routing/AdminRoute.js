@@ -6,6 +6,7 @@ import LoadingPage from "../components/layout/LoadingPage"
 
 const AdminRoute = ({
   component: Component,
+  socket,
   auth: { isAuthenticated, loading, user },
   ...rest
 }) => (
@@ -17,7 +18,7 @@ const AdminRoute = ({
       ) : localStorage.token && loading ? (
         <LoadingPage />
       ) : user?.role === "admin" ? (
-        <Component {...props} />
+        <Component {...props} socket={socket} />
       ) : (
         <Redirect to='/' />
       )

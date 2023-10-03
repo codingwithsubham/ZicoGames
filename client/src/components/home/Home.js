@@ -1,17 +1,22 @@
-import React, { useEffect, useState } from "react";
-import ProductList from "./ProductList";
-import UptimeCounter from "./UptimeCounter";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
-import { selfRegistration } from "../../actions/auth";
-import { getAllTradingData } from "../../actions/userTrading";
-import RefferalBoard from "./RefferalBoard";
-import LiveTradeRecords from "./LiveTradeRecords";
-import { showulDisplay } from "../../common/functions";
-import QuickAccess from "./QuickAccess";
-import TotalWalletTops from "./TotalWalletTops";
+import React, { useEffect, useState } from 'react';
+import ProductList from './ProductList';
+import UptimeCounter from './UptimeCounter';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { selfRegistration } from '../../actions/auth';
+import { getAllTradingData } from '../../actions/userTrading';
+import RefferalBoard from './RefferalBoard';
+import LiveTradeRecords from './LiveTradeRecords';
+import { showulDisplay } from '../../common/functions';
+import QuickAccess from './QuickAccess';
+import TotalWalletTops from './TotalWalletTops';
+import { Link } from 'react-router-dom';
 
-const Home = ({ auth: { user, allTimeTrade }, selfRegistration, getAllTradingData }) => {
+const Home = ({
+  auth: { user, allTimeTrade },
+  selfRegistration,
+  getAllTradingData,
+}) => {
   useEffect(() => {
     getAllTradingData();
   }, [getAllTradingData]);
@@ -21,7 +26,7 @@ const Home = ({ auth: { user, allTimeTrade }, selfRegistration, getAllTradingDat
   const handleSubmit = () => {
     if (checked) {
       selfRegistration();
-      setChecked(!checked)
+      setChecked(!checked);
     }
   };
 
@@ -50,6 +55,12 @@ const Home = ({ auth: { user, allTimeTrade }, selfRegistration, getAllTradingDat
   ) : (
     <div className="hme-wrap insta-an">
       <RefferalBoard />
+      {!display && (
+        <Link to="/wc-play" className="wcc-cvr">
+          <img src={require('../../static/prdct_cvr.gif')} alt="" />
+          <p>Explore Now</p>
+        </Link>
+      )}
       {!display ? <ProductList /> : <QuickAccess />}
       <UptimeCounter />
       {display && <TotalWalletTops />}
