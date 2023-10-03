@@ -109,6 +109,7 @@ router.post('/set', auth, async (req, res) => {
             ? tradeData[trdType]?.stocks[stock]
             : 0
         ) + parseInt(amnt);
+      req.io.emit('gameUnitUpdated', tradeData);
     }
     const userTrdData = new UserTradeData({
       user: req.user.id,
@@ -119,7 +120,6 @@ router.post('/set', auth, async (req, res) => {
     });
     await userTrdData.save();
     await tradeData.save();
-    req.io.emit('gameUnitUpdated', tradeData);
     return res.json(userTrdData);
   } catch (err) {
     console.log(err);
