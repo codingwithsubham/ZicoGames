@@ -55,12 +55,6 @@ const Home = ({
   ) : (
     <div className="hme-wrap insta-an">
       <RefferalBoard />
-      {!display && (
-        <Link to="/wc-play" className="wcc-cvr">
-          <img src={require('../../static/prdct_cvr.gif')} alt="" />
-          <p>Explore Now</p>
-        </Link>
-      )}
       {!display ? <ProductList /> : <QuickAccess />}
       <UptimeCounter />
       {display && <TotalWalletTops />}

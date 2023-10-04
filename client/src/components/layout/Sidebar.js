@@ -75,9 +75,6 @@ const Sidebar = ({
                   <NavLink exact to="/trd-live" onClick={() => closeSidebar()}>
                     Live Game
                   </NavLink>
-                  <NavLink exact to="/wc-admin" onClick={() => closeSidebar()}>
-                    World Cup
-                  </NavLink>
                   <NavLink exact to="/users" onClick={() => closeSidebar()}>
                     Users Details
                   </NavLink>

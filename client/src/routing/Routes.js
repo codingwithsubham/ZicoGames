@@ -23,19 +23,8 @@ import { showulDisplay } from "../common/functions";
 import Profile from "../components/profile/Profile";
 import AdminRoute from "./AdminRoute";
 import Users from "../components/admin/Users";
-import { io } from "socket.io-client";
-import WCAdminDash from "../components/admin/WC/WCAdminDash";
-import WCGame from "../components/admin/WC/WCGame";
-import WCGameUser from "../components/WCTrading/WCGameUser";
-import WCUserDash from "../components/WCTrading/WCUserDash";
 
 const Routes = ({ layout: { isSidebarOpen }}) => {
-  const socket = io(['https://zicogames.onrender.com/', 'http://localhost:8081'], {
-  withCredentials: true,
-  extraHeaders: {
-    "my-custom-header": "abcd"
-  }
-});
   const display = showulDisplay();
   return (
     <div
@@ -53,15 +42,11 @@ const Routes = ({ layout: { isSidebarOpen }}) => {
         <PrivateRoute exact path="/flight-trading" component={FlightTrading} />
         <PrivateRoute exact path="/wallet" component={Wallet} />
         <PrivateRoute exact path="/profile" component={Profile} />
-        <PrivateRoute exact path="/wc-play/:id" component={WCGameUser} socket={socket} />
-        <PrivateRoute exact path="/wc-play" component={WCUserDash} socket={socket} />
 
         <AdminRoute exact path="/trd-live" component={TradeRecord} />
         <AdminRoute exact path="/users" component={Users} />
         <AdminRoute exact path="/tp-up-aprv" component={ApproveTopupRequest} />
         <AdminRoute exact path="/wth-dwl-aprv" component={ApproveWithdrawlRequest} />
-        <AdminRoute exact path="/wc-admin" component={WCAdminDash} />
-        <AdminRoute exact path="/wc-game/:id" component={WCGame} socket={socket}/>
         {
           display && <Fragment>
             <PrivateRoute exact path="/wallet-top-up" component={WalletTopup} />
