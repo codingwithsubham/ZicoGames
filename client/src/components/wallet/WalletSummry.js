@@ -24,12 +24,6 @@ const WalletSummry = ({ wallet: { wallet }, getWallet, wltBlnc }) => {
         </div>
       </div>
       <div className="wlt-vals">₹ {wallet?.blnc}</div>
-      {!display && (
-        <p className="info-app">
-          We're not dealing with any Real Money!! Daily 100 virtual rupees will
-          be added to the wallet for demo and understanding.
-        </p>
-      )}
       {display && (
         <div className="wlt-btn-grps">
           <Link

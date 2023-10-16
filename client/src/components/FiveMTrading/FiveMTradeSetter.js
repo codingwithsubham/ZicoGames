@@ -24,7 +24,7 @@ const FiveMTradeSetter = ({
         setAlert("Don't have Enough Balance !!", "danger");
       } else {
         setTradeData({
-          stock: stock,
+          stock: stock.stock,
           amnt: amnt * mltply,
           tradeId: trdData?._id,
           trdType: FIVE_M,
@@ -41,7 +41,7 @@ const FiveMTradeSetter = ({
         <div className="trd-sttr-head">
           <h1>1,2 ka 9</h1>
           <p>
-            Chosen Stock: <strong>{stock}</strong>
+            Chosen Stock: <strong>{stock.stock} - {stock.name}</strong>
           </p>
         </div>
         <div className="trd-sttr-bdy">

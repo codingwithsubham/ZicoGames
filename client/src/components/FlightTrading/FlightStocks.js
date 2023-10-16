@@ -2,7 +2,13 @@ import React, { useState } from "react";
 import FlightTradeSetter from "./FlightTradeSetter";
 
 const FlightStocks = ({ tradingClose, timerVal, wlt }) => {
-  const stocks = [2,3,4,5,6];
+  const iStocks = [
+    { stock: 2, name: 'Suzuki' },
+    { stock: 3, name: 'MG' },
+    { stock: 4, name: 'Audi' },
+    { stock: 5, name: 'Mersidez' },
+    { stock: 6, name: 'BMW' },
+  ];
   const [stockItem, setStockItem] = useState(null);
   const [showPopup, setShowPopup] = useState(false);
   const handleClose = () => {
@@ -17,16 +23,20 @@ const FlightStocks = ({ tradingClose, timerVal, wlt }) => {
   return (
     <div className="trd-stks">
       {tradingClose && <div className="disble-sec fade">{timerVal}</div>}
-      {stocks?.map((itm, idx) => (
-        <div
-          className="stk-itms"
-          key={idx}
-          onClick={() => {
-            setShowPopup(true);
-            setStockItem(itm);
-          }}
-        >
-          {itm}X
+      {iStocks?.map((itm, idx) => (
+        <div className="stock-itm-wrap">
+          <div
+            className="stk-itms-wrp"
+            key={idx}
+            onClick={() => {
+              setShowPopup(true);
+              setStockItem(itm);
+            }}
+          >
+            <span className='hint'>{itm.stock}X</span>
+            <img src={require(`../../static/car-logo/${itm.stock}.png`)} alt="" />
+            <h1>{itm.name}</h1>
+          </div>
         </div>
       ))}
       {showPopup && (

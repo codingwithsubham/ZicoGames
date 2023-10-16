@@ -10,7 +10,6 @@ import LiveTradeRecords from './LiveTradeRecords';
 import { showulDisplay } from '../../common/functions';
 import QuickAccess from './QuickAccess';
 import TotalWalletTops from './TotalWalletTops';
-import { Link } from 'react-router-dom';
 
 const Home = ({
   auth: { user, allTimeTrade },

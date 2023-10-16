@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
-import { getCurrentTradingData } from "../../actions/userTrading";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
+import React, { useEffect } from 'react';
+import { getCurrentTradingData } from '../../actions/userTrading';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 const FlightUserTradingData = ({
   flightTrade: { trdData },
@@ -12,26 +12,36 @@ const FlightUserTradingData = ({
     trdData?._id && getCurrentTradingData(trdData?._id);
   }, [getCurrentTradingData, trdData]);
 
-  return <div className="usr-trd-data">
-    <table className="trd-rcrds-table">
+  return (
+    <div className="usr-trd-data">
+      <table className="trd-rcrds-table">
         <thead>
           <tr>
             <th>Stock</th>
             <th>Amount</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className='img-bdy'>
           {currenTradingData?.map((itm, idx) => (
             <tr key={idx}>
-               <td className="clr-icn-data">
-                {itm?.tradingData?.stock}
+              <td>
+                {itm.result === 'Running' ? (
+                  'Running'
+                ) : (
+                  <img
+                    className="usr-td-img"
+                    src={require(`../../static/car-logo/${itm?.tradingData?.stock}.png`)}
+                    alt=""
+                  />
+                )}
               </td>
               <td>{itm?.tradingData?.amnt}</td>
             </tr>
           ))}
         </tbody>
       </table>
-  </div>;
+    </div>
+  );
 };
 
 FlightUserTradingData.propTypes = {

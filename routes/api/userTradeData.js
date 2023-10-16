@@ -82,7 +82,7 @@ router.post('/set', auth, async (req, res) => {
   } else if (trdType === COLOR) {
     note = 'Debit on Rang-bazi';
   } else if (trdType === FLIGHT) {
-    note = 'Debit on Patang-bazi';
+    note = 'Debit on Car-bazi';
   } else {
     note = 'Debit on Cricket-Baazi';
   }

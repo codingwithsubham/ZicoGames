@@ -1,9 +1,12 @@
-import React, { useEffect } from "react";
-import { getTradeRecords } from "../../actions/flightTrade";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
+import React, { useEffect } from 'react';
+import { getTradeRecords } from '../../actions/flightTrade';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
-const FlightTradeRecords = ({ flightTrade: { allTrdData }, getTradeRecords }) => {
+const FlightTradeRecords = ({
+  flightTrade: { allTrdData },
+  getTradeRecords,
+}) => {
   useEffect(() => {
     getTradeRecords();
   }, [getTradeRecords]);
@@ -18,13 +21,21 @@ const FlightTradeRecords = ({ flightTrade: { allTrdData }, getTradeRecords }) =>
             <th>Result</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className='img-bdy'>
           {allTrdData?.map((itm, idx) => (
             <tr key={idx}>
-              <td>{itm?._id?.toString().substring(0,8)}</td>
+              <td>{itm?._id?.toString().substring(0, 8)}</td>
               <td>Patang-Baz</td>
-              <td className="clr-icn-data">
-                {itm.result}
+              <td>
+                {itm.result === 'Running' ? (
+                  'Running'
+                ) : (
+                  <img
+                    className="td-img"
+                    src={require(`../../static/car-logo/${itm.result}.png`)}
+                    alt=""
+                  />
+                )}
               </td>
             </tr>
           ))}

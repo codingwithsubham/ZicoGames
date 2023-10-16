@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
-import { getCurrentTradingData } from "../../actions/userTrading";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
+import React, { useEffect } from 'react';
+import { getCurrentTradingData } from '../../actions/userTrading';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 const FiveMUserTradingData = ({
   fiveMTrade: { trdData },
@@ -12,8 +12,9 @@ const FiveMUserTradingData = ({
     trdData?._id && getCurrentTradingData(trdData?._id);
   }, [getCurrentTradingData, trdData]);
 
-  return <div className="usr-trd-data">
-    <table className="trd-rcrds-table">
+  return (
+    <div className="usr-trd-data">
+      <table className="trd-rcrds-table">
         <thead>
           <tr>
             <th>Stock</th>
@@ -23,13 +24,24 @@ const FiveMUserTradingData = ({
         <tbody>
           {currenTradingData?.map((itm, idx) => (
             <tr key={idx}>
-              <td>{itm?.tradingData?.stock}</td>
+              <td>
+                {itm.result === 'Running' ? (
+                  'Running'
+                ) : (
+                  <img
+                    className="usr-td-img"
+                    src={require(`../../static/fruits/${itm?.tradingData?.stock}.png`)}
+                    alt=""
+                  />
+                )}
+              </td>
               <td>{itm?.tradingData?.amnt}</td>
             </tr>
           ))}
         </tbody>
       </table>
-  </div>;
+    </div>
+  );
 };
 
 FiveMUserTradingData.propTypes = {

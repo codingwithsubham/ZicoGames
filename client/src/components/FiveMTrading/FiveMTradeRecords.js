@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
-import { getTradeRecords } from "../../actions/fiveMTrade";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
+import React, { useEffect } from 'react';
+import { getTradeRecords } from '../../actions/fiveMTrade';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 const FiveMTradeRecords = ({ fiveMTrade: { allTrdData }, getTradeRecords }) => {
   useEffect(() => {
@@ -21,9 +21,19 @@ const FiveMTradeRecords = ({ fiveMTrade: { allTrdData }, getTradeRecords }) => {
         <tbody>
           {allTrdData?.map((itm, idx) => (
             <tr key={idx}>
-              <td>{itm?._id?.toString().substring(0,8)}</td>
+              <td>{itm?._id?.toString().substring(0, 8)}</td>
               <td>1,2 ka 9</td>
-              <td>{itm.result}</td>
+              <td>
+                {itm.result === 'Running' ? (
+                  'Running'
+                ) : (
+                  <img
+                    className="td-img"
+                    src={require(`../../static/fruits/${itm.result}.png`)}
+                    alt=""
+                  />
+                )}
+              </td>
             </tr>
           ))}
         </tbody>

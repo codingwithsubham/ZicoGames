@@ -14,7 +14,7 @@ const ProductList = () => {
             </Link>
             <Link to='/flight-trading' className='cnf-itm'>
                 <img className='cnf-icn' alt='' src={require('../../static/2.png')} />
-                <p>Patang-baz</p>
+                <p>Car-baz</p>
             </Link>
             <div className='cnf-itm'>
                 <div className='cmg-soon'>Coming Soon</div>

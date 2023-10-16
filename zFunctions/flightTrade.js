@@ -10,7 +10,7 @@ const distributeWinning = async (trdData) => {
     if (usrTrdData.length > 0) {
         for (element of usrTrdData) {
             const amnt = parseInt(element?.tradingData?.amnt) * parseInt(trdData?.result);
-            await creditToWallet(amnt, "Patang-baaz Winning", element?.user)
+            await creditToWallet(amnt, "Car-baaz Winning", element?.user)
         }
     }
 }

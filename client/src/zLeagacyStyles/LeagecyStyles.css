@@ -6,7 +6,7 @@ section.container {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  background-color: #111;
+  background-color: #000;
   color: #fff;
   margin-top: -5px;
   padding-top: 10px;
@@ -14,7 +14,9 @@ section.container {
 .main-content {
   max-width: 900px;
   width: 100%;
-  background-color: #111;
+  background-image: url("../static/lbg.jpg");
+  background-blend-mode: darken;
+  background-color: #0000008f;
 }
 
 img.lg-logo {
@@ -1129,7 +1131,8 @@ button.btn.export-xl {
 }
 
 .load-page img.spinner {
-  width: 30%;
+  width: 30% !important;
+  height: auto;
 }
 
 .load-page {
@@ -1142,7 +1145,10 @@ button.btn.export-xl {
 }
 
 .load-page .spinner-wrapper {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .load-page h1 {

@@ -24,7 +24,7 @@ const FlightTradeSetter = ({
         setAlert("Don't have Enough Balance !!", "danger");
       } else {
         setTradeData({
-          stock: stock,
+          stock: stock.stock,
           amnt: amnt * mltply,
           tradeId: trdData?._id,
           trdType: FLIGHT,
@@ -39,9 +39,9 @@ const FlightTradeSetter = ({
       <div className="trd-sttr-bg" onClick={() => handleClose()} />
       <div className="trd-sttr-cntnt insta-an">
         <div className="trd-sttr-head">
-          <h1>Patang-Baz</h1>
+          <h1>Car-Baz</h1>
           <p>
-            Chosen Stock: <strong>{stock}</strong>
+            Chosen Stock: <strong>{stock.stock} - {stock.name}</strong>
           </p>
         </div>
         <div className="trd-sttr-bdy">
@@ -128,7 +128,7 @@ const FlightTradeSetter = ({
             alt=""
             className="winz-img"
           />
-          <h2>{stock}X</h2>
+          <h2>{stock.stock}X</h2>
           <h3>Return</h3>
         </div>
         <div className="trd-sttr-ftr">
