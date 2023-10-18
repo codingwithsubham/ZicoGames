@@ -36,7 +36,7 @@ const FiveMTradeRecords = ({ fiveMTrade: { allTrdData }, getTradeRecords }) => {
                     />
                   )}
                   {
-                    iStocks.filter((x) => x.stock == parseInt(itm.result))[0]
+                    iStocks.filter((x) => x.stock === parseInt(itm.result))[0]
                       ?.mlt
                   }
                   X

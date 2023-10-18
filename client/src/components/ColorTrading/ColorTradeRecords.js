@@ -40,8 +40,8 @@ const ColorTradeRecords = ({ colorTrade: { allTrdData }, getTradeRecords }) => {
                       alt=""
                     />
                   )}
-                  {iStocks.filter((x) => x.stock == itm.result)[0]?.name} -
-                  {iStocks.filter((x) => x.stock == itm.result)[0]?.mlt}X
+                  {iStocks.filter((x) => x.stock === itm.result)[0]?.name} -
+                  {iStocks.filter((x) => x.stock === itm.result)[0]?.mlt}X
                 </div>
               </td>
             </tr>

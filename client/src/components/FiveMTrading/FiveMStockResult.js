@@ -58,7 +58,7 @@ const FiveMStockResult = ({
               ) : (
                 <Fragment />
               )}
-              <div className='mltply'>{iStocks.filter(x => x.stock == parseInt(allTrdData[0]?.result))[0]?.mlt}X</div>
+              <div className='mltply'>{iStocks.filter(x => x.stock === parseInt(allTrdData[0]?.result))[0]?.mlt}X</div>
             </div>
           </div>
           <p>It's the last winning of the game.</p>

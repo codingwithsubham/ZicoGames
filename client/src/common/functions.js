@@ -15,6 +15,27 @@ export const shuffle = (a) => {
     return a;
 }
 
+// export const showulDisplay = () => {
+//     var standalone = window.navigator.standalone,
+//         userAgent = window.navigator.userAgent.toLowerCase(),
+//         safari = /safari/.test(userAgent),
+//         ios = /iphone|ipod|ipad/.test(userAgent);
+
+//     if (ios) {
+//         if (!standalone && safari) {
+//             return true;
+//         } else if (!standalone && !safari) {
+//             return false;
+//         };
+//     } else {
+//         if (userAgent.includes('wv')) {
+//             return false;
+//         } else {
+//             return true;
+//         }
+//     };
+// }
+
 export const showulDisplay = () => {
     var standalone = window.navigator.standalone,
         userAgent = window.navigator.userAgent.toLowerCase(),
@@ -23,15 +44,15 @@ export const showulDisplay = () => {
 
     if (ios) {
         if (!standalone && safari) {
-            return true;
-        } else if (!standalone && !safari) {
             return false;
+        } else if (!standalone && !safari) {
+            return true;
         };
     } else {
         if (userAgent.includes('wv')) {
-            return false;
-        } else {
             return true;
+        } else {
+            return false;
         }
     };
 }

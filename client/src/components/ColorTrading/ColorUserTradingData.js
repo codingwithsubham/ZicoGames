@@ -18,6 +18,8 @@ const ColorUserTradingData = ({
     { mlt: 2, color: 'blu', stock: 'green', name: 'King' },
   ];
 
+  const colorVal = ["red", "yellow", "green"]
+
   return (
     <div className="usr-trd-data">
       <table className="trd-rcrds-table">
@@ -32,18 +34,16 @@ const ColorUserTradingData = ({
             <tr key={idx}>
               <td>
                 <div className="icn-dta">
-                  {itm.result === 'Running' ? (
-                    'Running'
-                  ) : (
+                  {colorVal.includes(itm?.tradingData?.stock) ? 
                     <img
                       className="usr-td-img"
                       src={require(`../../static/cards/${itm?.tradingData?.stock}.png`)}
                       alt=""
                       style={{marginRight: "10px"}}
-                    />
-                  )}
-                  {iStocks.filter((x) => x.stock == itm?.tradingData?.stock)[0]?.name} - {' '}
-                  {iStocks.filter((x) => x.stock == itm?.tradingData?.stock)[0]?.mlt}X
+                    /> : "Loading..."
+                  }
+                  {iStocks.filter((x) => x.stock === itm?.tradingData?.stock)[0]?.name} - {' '}
+                  {iStocks.filter((x) => x.stock === itm?.tradingData?.stock)[0]?.mlt}X
                 </div>
               </td>
               <td>{itm?.tradingData?.amnt}</td>

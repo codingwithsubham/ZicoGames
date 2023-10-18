@@ -12,6 +12,8 @@ const FlightUserTradingData = ({
     trdData?._id && getCurrentTradingData(trdData?._id);
   }, [getCurrentTradingData, trdData]);
 
+  const itmVal = [2,3,4,5,6];
+
   return (
     <div className="usr-trd-data">
       <table className="trd-rcrds-table">
@@ -25,8 +27,8 @@ const FlightUserTradingData = ({
           {currenTradingData?.map((itm, idx) => (
             <tr key={idx}>
               <td>
-                {itm.result === 'Running' ? (
-                  'Running'
+                {!itmVal.includes(parseInt(itm?.tradingData?.stock)) ? (
+                  'Loading...'
                 ) : (
                   <img
                     className="usr-td-img"
