@@ -395,3 +395,12 @@ input[type='file'] {
     transform: rotate(360deg);
   }
 }
+
+@keyframes anim-mltply {
+  from {
+    margin-left: 0px;
+  }
+  to {
+    margin-left: 230px;
+  }
+}

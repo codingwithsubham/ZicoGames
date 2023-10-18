@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { getTradeRecords } from '../../actions/flightTrade';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { track } from '../../common/randomData.json';
 
 const FlightResult = ({
   tradingClose,
@@ -10,10 +9,10 @@ const FlightResult = ({
   flightTrade: { allTrdData },
   getTradeRecords,
 }) => {
-  const [ranNum, setranNum] = useState(6);
+  const [ranNum, setranNum] = useState(2);
   useEffect(() => {
     getTradeRecords();
-    setInterval(() => setranNum(Math.floor(Math.random() * 6 + 1)), 222);
+    setInterval(() => setranNum(Math.floor(Math.random() * 6 + 1)), 111);
   }, [getTradeRecords]);
 
   const [isApiCalled, setApiCalled] = useState(false);
@@ -33,7 +32,7 @@ const FlightResult = ({
     <div className="rslt-dsply">
       {tradingClose ? (
         <div className="nmbr-flpr">
-          <h1>Stock Rolling Onn</h1>
+          <h1>Rolling Onn</h1>
           <div className="cars-trk">
             {cars.map((itm, idx) => (
               <div
@@ -44,11 +43,11 @@ const FlightResult = ({
               </div>
             ))}
           </div>
-          <p>Stockes are rolled to win.</p>
+          <p>Let's Hope for Win</p>
         </div>
       ) : (
         <div className="rslt-show">
-          <h1>Last Winning Stock</h1>
+          <h1>Last Winning</h1>
           <div className="roller-anim">
             <div className="cars-trk">
               {cars.map((itm, idx) => (
@@ -66,7 +65,7 @@ const FlightResult = ({
               ))}
             </div>
           </div>
-          <p>It's the last winning stock number.</p>
+          <p>It's the last winning of the game.</p>
         </div>
       )}
     </div>

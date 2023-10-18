@@ -7,10 +7,31 @@ const { creditToWallet } = require("../functions/walletFunctions");
 
 const distributeWinning = async (trdData) => {
     const usrTrdData = await UserTradeData.find({ tradeId: trdData?._id, 'tradingData.stock': trdData?.result });
+    let mltipy = 2;
+    const res = trdData.result;
+    if( parseInt(res) >= 0 && parseInt(res) <= 2 ) {
+        mltipy = 2;
+    }
+    if( parseInt(res) >= 3 && parseInt(res) <= 5 ) {
+        mltipy = 5;
+    }
+    if(parseInt(res) === 6 ) {
+        mltipy = 10;
+    }
+    if(parseInt(res) === 7 ) {
+        mltipy = 20;
+    }
+    if(parseInt(res) === 8 ) {
+        mltipy = 25;
+    }
+    if(parseInt(res) === 9 ) {
+        mltipy = 40;
+    }
+
     if (usrTrdData.length > 0) {
         for (element of usrTrdData) {
-            const amnt = parseInt(element?.tradingData?.amnt) * 9;
-            await creditToWallet(amnt, "1,2 ka 9 Winning", element?.user)
+            const amnt = parseInt(element?.tradingData?.amnt) * mltipy;
+            await creditToWallet(amnt, `Fruit Win ${mltipy}X`, element?.user);
         }
     }
 }

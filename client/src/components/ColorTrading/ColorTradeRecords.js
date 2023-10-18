@@ -1,12 +1,18 @@
-import React, { useEffect } from "react";
-import { getTradeRecords } from "../../actions/colorTrade";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
+import React, { useEffect } from 'react';
+import { getTradeRecords } from '../../actions/colorTrade';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 const ColorTradeRecords = ({ colorTrade: { allTrdData }, getTradeRecords }) => {
   useEffect(() => {
     getTradeRecords();
   }, [getTradeRecords]);
+
+  const iStocks = [
+    { mlt: 2, color: 'red', stock: 'red', name: 'Jack' },
+    { mlt: 3, color: 'grn', stock: 'yellow', name: 'Queen' },
+    { mlt: 2, color: 'blu', stock: 'green', name: 'King' },
+  ];
 
   return (
     <div className="trd-rcrds">
@@ -21,22 +27,22 @@ const ColorTradeRecords = ({ colorTrade: { allTrdData }, getTradeRecords }) => {
         <tbody>
           {allTrdData?.map((itm, idx) => (
             <tr key={idx}>
-              <td>{itm?._id?.toString().substring(0,8)}</td>
-              <td>Rang-bazi</td>
-              <td className="clr-icn-data">
-                {itm.result}
-                <div 
-                  className="clr-icn"
-                  style={
-                    itm.result === "red"
-                      ? { backgroundColor: "#e63d31" }
-                      : itm.result === "yellow"
-                      ? { backgroundColor: "#ffeb3b" }
-                      : itm.result === "green"
-                      ? { backgroundColor: "#49aa4d" }
-                      : { backgroundColor: "#fff"}
-                  }
-                />
+              <td>{itm?._id?.toString().substring(0, 8)}</td>
+              <td>Card-bazi</td>
+              <td>
+                <div className="icn-dta">
+                  {itm.result === 'Running' ? (
+                    'Running'
+                  ) : (
+                    <img
+                      className="td-img"
+                      src={require(`../../static/cards/${itm.result}.png`)}
+                      alt=""
+                    />
+                  )}
+                  {iStocks.filter((x) => x.stock == itm.result)[0]?.name} -
+                  {iStocks.filter((x) => x.stock == itm.result)[0]?.mlt}X
+                </div>
               </td>
             </tr>
           ))}

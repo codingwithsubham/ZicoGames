@@ -25,7 +25,7 @@ const FlightTradeRecords = ({
           {allTrdData?.map((itm, idx) => (
             <tr key={idx}>
               <td>{itm?._id?.toString().substring(0, 8)}</td>
-              <td>Patang-Baz</td>
+              <td>Car-Baz</td>
               <td>
                 {itm.result === 'Running' ? (
                   'Running'

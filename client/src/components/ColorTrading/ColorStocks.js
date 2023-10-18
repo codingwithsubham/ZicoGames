@@ -2,7 +2,11 @@ import React, { useState } from "react";
 import ColorTradeSetter from "./ColorTradeSetter";
 
 const ColorStocks = ({ tradingClose, timerVal, wlt }) => {
-  const stocks = ["red", "yellow", "green"];
+  const iStocks = [
+    { mlt: 2, color: 'red', stock: "red", name: 'Jack' },
+    { mlt: 3, color: 'grn', stock: "yellow", name: 'Queen' },
+    { mlt: 2, color: 'blu', stock: "green", name: 'King' },
+  ];
   const [stockItem, setStockItem] = useState(null);
   const [showPopup, setShowPopup] = useState(false);
   const handleClose = () => {
@@ -17,23 +21,20 @@ const ColorStocks = ({ tradingClose, timerVal, wlt }) => {
   return (
     <div className="trd-stks clor">
       {tradingClose && <div className="disble-sec fade">{timerVal}</div>}
-      {stocks?.map((itm, idx) => (
-        <div
-          className="stk-itms"
-          style={
-            itm === "red"
-              ? { backgroundColor: "#e63d31" }
-              : itm === "yellow"
-              ? { backgroundColor: "#ffeb3b" }
-              : { backgroundColor: "#49aa4d" }
-          }
-          key={idx}
-          onClick={() => {
-            setShowPopup(true);
-            setStockItem(itm);
-          }}
-        >
-          {itm === "yellow" ? "3X" : "2X"}
+      {iStocks?.map((itm, idx) => (
+        <div className="stock-itm-wrap">
+          <div
+            className="stk-itms-wrp"
+            key={idx}
+            onClick={() => {
+              setShowPopup(true);
+              setStockItem(itm);
+            }}
+          >
+            <span className={`hint ${itm.color}`}>{itm.mlt}X</span>
+            <img src={require(`../../static/cards/${itm.stock}.png`)} alt="" />
+            <h1>{itm.name}</h1>
+          </div>
         </div>
       ))}
       {showPopup && (

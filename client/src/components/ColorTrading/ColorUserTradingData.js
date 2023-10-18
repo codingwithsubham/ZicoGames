@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
-import { getCurrentTradingData } from "../../actions/userTrading";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
+import React, { useEffect } from 'react';
+import { getCurrentTradingData } from '../../actions/userTrading';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 const ColorUserTradingData = ({
   colorTrade: { trdData },
@@ -12,8 +12,15 @@ const ColorUserTradingData = ({
     trdData?._id && getCurrentTradingData(trdData?._id);
   }, [getCurrentTradingData, trdData]);
 
-  return <div className="usr-trd-data">
-    <table className="trd-rcrds-table">
+  const iStocks = [
+    { mlt: 2, color: 'red', stock: 'red', name: 'Jack' },
+    { mlt: 3, color: 'grn', stock: 'yellow', name: 'Queen' },
+    { mlt: 2, color: 'blu', stock: 'green', name: 'King' },
+  ];
+
+  return (
+    <div className="usr-trd-data">
+      <table className="trd-rcrds-table">
         <thead>
           <tr>
             <th>Stock</th>
@@ -23,27 +30,29 @@ const ColorUserTradingData = ({
         <tbody>
           {currenTradingData?.map((itm, idx) => (
             <tr key={idx}>
-               <td className="clr-icn-data">
-                {itm?.tradingData?.stock}
-                <div 
-                  className="clr-icn"
-                  style={
-                    itm?.tradingData?.stock === "red"
-                      ? { backgroundColor: "#e63d31" }
-                      : itm?.tradingData?.stock === "yellow"
-                      ? { backgroundColor: "#ffeb3b" }
-                      : itm?.tradingData?.stock === "green"
-                      ? { backgroundColor: "#49aa4d" }
-                      : { backgroundColor: "#fff"}
-                  }
-                />
+              <td>
+                <div className="icn-dta">
+                  {itm.result === 'Running' ? (
+                    'Running'
+                  ) : (
+                    <img
+                      className="usr-td-img"
+                      src={require(`../../static/cards/${itm?.tradingData?.stock}.png`)}
+                      alt=""
+                      style={{marginRight: "10px"}}
+                    />
+                  )}
+                  {iStocks.filter((x) => x.stock == itm?.tradingData?.stock)[0]?.name} - {' '}
+                  {iStocks.filter((x) => x.stock == itm?.tradingData?.stock)[0]?.mlt}X
+                </div>
               </td>
               <td>{itm?.tradingData?.amnt}</td>
             </tr>
           ))}
         </tbody>
       </table>
-  </div>;
+    </div>
+  );
 };
 
 ColorUserTradingData.propTypes = {

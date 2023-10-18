@@ -1421,7 +1421,7 @@ a.wcc-cvr p {
 }
 
 span.hint {
-  background: #FFC107;
+  background: #ffc107;
   width: 40px;
   text-align: center;
   border-radius: 5px;
@@ -1467,7 +1467,7 @@ img.usr-td-img {
   margin: 1%;
   border-radius: 10px;
   padding: 10px;
-  transition: 0.5s;
+  transition: 0.1s;
 }
 
 .cars.active {
@@ -1493,6 +1493,75 @@ tbody.img-bdy {
 
 .clor .disble-sec {
   min-height: 150px !important;
+}
+
+span.hint.red {
+  background: #f44336 !important;
+  color: #fff;
+}
+
+span.hint.vlt {
+  background: #9c27b0 !important;
+  color: #fff;
+}
+
+span.hint.grn {
+  color: #fff;
+  background: #1b5e20 !important;
+}
+
+span.hint.ylw {
+  background: #ff8f00 !important;
+  color: #fff;
+}
+
+span.hint.blu {
+  background: #283593 !important;
+  color: #fff;
+}
+
+span.hint.pnk {
+  background: #c2185b !important;
+  color: #fff;
+}
+
+.mltply {
+  margin-left: 230px;
+  position: absolute;
+  animation: anim-mltply 0.7s;
+  -webkit-animation: anim-mltply 0.7s;
+  transition: 0.7s;
+}
+
+.icn-dta {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.icn-dta img.td-img {
+  margin-right: 10px;
+}
+
+.clor .stock-itm-wrap {
+  width: 33%;
+}
+
+.clr .cars {
+  width: 70px;
+  height: 70px;
+  border-color: #3f51b5;
+  border-radius: 50%;
+}
+
+.clr .cars img {
+  width: 60px;
+  height: 60px;
+}
+
+.clr .cars.active {
+  border-color: #ffc107;
 }
 
 @media only screen and (max-width: 600px) {

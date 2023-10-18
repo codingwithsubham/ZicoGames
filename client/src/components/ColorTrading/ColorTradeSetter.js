@@ -24,7 +24,7 @@ const ColorTradeSetter = ({
         setAlert("Don't have Enough Balance !!", "danger");
       } else {
         setTradeData({
-          stock: stock,
+          stock: stock?.stock,
           amnt: amnt * mltply,
           tradeId: trdData?._id,
           trdType: COLOR,
@@ -39,9 +39,9 @@ const ColorTradeSetter = ({
       <div className="trd-sttr-bg" onClick={() => handleClose()} />
       <div className="trd-sttr-cntnt insta-an">
         <div className="trd-sttr-head">
-          <h1>Rang-bazi</h1>
+          <h1>Card-bazi</h1>
           <p>
-            Chosen Stock: <strong>{stock}</strong>
+            Chosen Stock: <strong>{stock?.name} - {stock?.mlt}X</strong>
           </p>
         </div>
         <div className="trd-sttr-bdy">

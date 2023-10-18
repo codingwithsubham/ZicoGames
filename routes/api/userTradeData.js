@@ -80,7 +80,7 @@ router.post('/set', auth, async (req, res) => {
   if (trdType === FIVE_M) {
     note = 'Debit on 1,2 Ka 9';
   } else if (trdType === COLOR) {
-    note = 'Debit on Rang-bazi';
+    note = 'Debit on Card-bazi';
   } else if (trdType === FLIGHT) {
     note = 'Debit on Car-bazi';
   } else {

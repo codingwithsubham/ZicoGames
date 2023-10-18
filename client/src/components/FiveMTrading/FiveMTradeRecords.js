@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { getTradeRecords } from '../../actions/fiveMTrade';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { iStocks } from '../../common/common';
 
 const FiveMTradeRecords = ({ fiveMTrade: { allTrdData }, getTradeRecords }) => {
   useEffect(() => {
@@ -24,15 +25,22 @@ const FiveMTradeRecords = ({ fiveMTrade: { allTrdData }, getTradeRecords }) => {
               <td>{itm?._id?.toString().substring(0, 8)}</td>
               <td>1,2 ka 9</td>
               <td>
-                {itm.result === 'Running' ? (
-                  'Running'
-                ) : (
-                  <img
-                    className="td-img"
-                    src={require(`../../static/fruits/${itm.result}.png`)}
-                    alt=""
-                  />
-                )}
+                <div className="icn-dta">
+                  {itm.result === 'Running' ? (
+                    'Running'
+                  ) : (
+                    <img
+                      className="td-img"
+                      src={require(`../../static/fruits/${itm.result}.png`)}
+                      alt=""
+                    />
+                  )}
+                  {
+                    iStocks.filter((x) => x.stock == parseInt(itm.result))[0]
+                      ?.mlt
+                  }
+                  X
+                </div>
               </td>
             </tr>
           ))}

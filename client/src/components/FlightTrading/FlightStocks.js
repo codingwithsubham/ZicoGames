@@ -3,11 +3,11 @@ import FlightTradeSetter from "./FlightTradeSetter";
 
 const FlightStocks = ({ tradingClose, timerVal, wlt }) => {
   const iStocks = [
-    { stock: 2, name: 'Suzuki' },
-    { stock: 3, name: 'MG' },
-    { stock: 4, name: 'Audi' },
-    { stock: 5, name: 'Mersidez' },
-    { stock: 6, name: 'BMW' },
+    { color: 'red', stock: 2, name: 'Suzuki' },
+    { color: 'grn', stock: 3, name: 'MG' },
+    { color: 'blu', stock: 4, name: 'Audi' },
+    { color: 'pnk', stock: 5, name: 'Mersidez' },
+    { color: 'ylw', stock: 6, name: 'BMW' },
   ];
   const [stockItem, setStockItem] = useState(null);
   const [showPopup, setShowPopup] = useState(false);
@@ -33,7 +33,7 @@ const FlightStocks = ({ tradingClose, timerVal, wlt }) => {
               setStockItem(itm);
             }}
           >
-            <span className='hint'>{itm.stock}X</span>
+            <span className={`hint ${itm.color}`}>{itm.stock}X</span>
             <img src={require(`../../static/car-logo/${itm.stock}.png`)} alt="" />
             <h1>{itm.name}</h1>
           </div>

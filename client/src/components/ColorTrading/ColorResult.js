@@ -9,10 +9,10 @@ const ColorResult = ({
   colorTrade: { allTrdData },
   getTradeRecords,
 }) => {
-  const [ranNum, setranNum] = useState(9);
+  const [ranNum, setranNum] = useState(1);
   useEffect(() => {
     getTradeRecords();
-    setInterval(() => setranNum(Math.floor(Math.random() * 9 + 1)), 222);
+    setInterval(() => setranNum(Math.floor(Math.random() * 3 + 1)), 111);
   }, [getTradeRecords]);
 
   const [isApiCalled, setApiCalled] = useState(false);
@@ -25,44 +25,47 @@ const ColorResult = ({
   if(timerVal > 10 && isApiCalled) {
     setApiCalled(false);
   }  
+
+  const cards = ['red', 'yellow', 'green'];
   
   return (
-    <div className="rslt-dsply">
+    <div className="rslt-dsply clr">
       {tradingClose ? (
         <div className="nmbr-flpr">
-          <h1>Stock Rolling Onn</h1>
-          <div className="clr-trd">
-            <div
-              className="flpr"
-              style={
-                ranNum % 3 === 0
-                  ? { backgroundColor: "#e63d31" }
-                  : ranNum % 3 === 1
-                  ? { backgroundColor: "#ffeb3b" }
-                  : { backgroundColor: "#49aa4d" }
-              }
-            ></div>
+          <h1>Rolling Onn</h1>
+          <div className="cars-trk">
+            {cards.map((itm, idx) => (
+              <div
+                className={`cars ${ranNum === (idx+1) ? 'active' : ''}`}
+                key={idx}
+              >
+                <img src={require(`../../static/cards/${itm}.png`)} alt="" />
+              </div>
+            ))}
           </div>
-          <p>Stockes are rolled to win.</p>
+          <p>Items are rolled to win.</p>
         </div>
       ) : (
-        <div className="rslt-show">
-          <h1>Last Winning Stock</h1>
-          <div className="clr-trd">
-            <div
-              className="nmbr"
-              style={
-                allTrdData[0]?.result === "red"
-                ? { backgroundColor: "#e63d31" }
-                : allTrdData[0]?.result === "yellow"
-                ? { backgroundColor: "#ffeb3b" }
-                : allTrdData[0]?.result === "green"
-                ? { backgroundColor: "#49aa4d" }
-                : { backgroundColor: "#fff"}
-              }
-            ></div>
+        <div className="rslt-show clr">
+          <h1>Last Winning</h1>
+          <div className="roller-anim">
+            <div className="cars-trk">
+              {cards.map((itm, idx) => (
+                <div
+                  className={`cars ${
+                    allTrdData[0]?.result === itm ? 'active' : ''
+                  }`}
+                  key={idx}
+                >
+                  <img
+                    src={require(`../../static/cards/${itm}.png`)}
+                    alt=""
+                  />
+                </div>
+              ))}
+            </div>
           </div>
-          <p>It's the last winning stock number.</p>
+          <p>It's the last winning of the game.</p>
         </div>
       )}
     </div>
