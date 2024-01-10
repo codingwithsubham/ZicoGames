@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import PaymentGateway from "../paymentGateway/PaymentGateway";
-//import CompletePayment from "./CompletePayment";
+//import PaymentGateway from "../paymentGateway/PaymentGateway";
+import CompletePayment from "./CompletePayment";
 
 const WalletTopup = () => {
   const amnts = [
@@ -21,7 +21,7 @@ const WalletTopup = () => {
 
   return (
     <div className="wlt-tpup">
-       <div className="amnt">
+       {/* <div className="amnt">
           <div className="img-flbak">
             <img src={require("../../static/waltanim.gif")} alt="" />
           </div>
@@ -45,8 +45,8 @@ const WalletTopup = () => {
           type={'WC'}
           handleClose={handleClose}
         />
-      )}
-      {/* {!selected ? (
+      )} */}
+      {!selected ? (
         <div className="amnt">
           <div className="img-flbak">
             <img src={require("../../static/waltanim.gif")} alt="" />
@@ -66,7 +66,7 @@ const WalletTopup = () => {
         </div>
       ) : (
         <CompletePayment selected={selected} handleClose={handleClose} />
-      )} */}
+      )}
     </div>
   );
 };
