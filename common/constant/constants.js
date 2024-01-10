@@ -31,7 +31,7 @@ module.exports = {
   JWT_SECRET: "@ybl&pn=HM%20Online%20Pay%20Easy%20Achieve&",
   COMMON_PASSWORD: "password",
   MONGO_URI_CLOUD:
-    "mongodb+srv://admin:nimda@zico.qls9dn9.mongodb.net/?retryWrites=true&w=majority",
+    "mongodb+srv://admin:nimda@zico.upaj3zm.mongodb.net/?retryWrites=true&w=majority",
   
   //Transactions
   CREDIT: "Credit",
