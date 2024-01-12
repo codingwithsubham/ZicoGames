@@ -14,17 +14,17 @@ const CompletePayment = ({ selected, topUpRequest, handleClose }) => {
     };
     return (
         <div className="pymnt">
-            <div className="img-flbak">
+            {/* <div className="img-flbak">
                 <img src={require("../../static/QR.jpg")} alt="" />
-            </div>
+            </div> */}
             <div className="amnt-val">{selected}</div>
-            <div className="upi-id">Q075109365@ybl</div>
-            <div className="img-lnk-grp">
+            {/* <div className="upi-id">Q075109365@ybl</div> */}
+            {/* <div className="img-lnk-grp">
                 <a href={`upi://pay?pa=Q075109365@ybl&am=${selected}`}>
                     <img src={require("../../static/bank_icon.png")} alt="" />
                     <h4>Pay Via GPay/phonePe/Paytm</h4>
                 </a>
-            </div>
+            </div> */}
             <ul>
                 <li>
                     1. Transfer according to the displayed transfer information.
